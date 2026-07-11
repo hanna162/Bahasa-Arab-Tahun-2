@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="ms"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260710-05-9ed98a3"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bahasa Arab Tahun 2</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/719055fef2a85d14.editing_sdk.js" integrity="sha512-kFqrdGgIiTOsu307feB5Cy3JVP9IayftsmCIZ0csxYBGuBmJQPhyvcnmKR8F0fTW97h5s1gAvz3SumI8zJ6OxQ=="></script>
+  <style>
+:root { --vh: 1vh; }
+body { font-family: 'DM Sans', sans-serif; margin: 0; overflow-x: hidden; }
+.dark-mode .page-bg { background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%) !important; }
+.dark-mode .card-tile { background: #16213e !important; border-color: #2a2a4e !important; color: #f0f0f0; }
+.dark-mode .nav-bar { background: #0f3460 !important; }
+.dark-mode .content-card { background: #1e2a4a !important; color: #f0f0f0; }
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p { color: #f0f0f0; }
+
+.page-bg {
+    min-height: calc(100 * min(var(--vh, 1vh), 1vh));
+    background: linear-gradient(180deg, #87CEEB 0%, #e0f7fa 30%, #c8e6c9 100%);
+    padding-bottom: 80px;
+    transition: background 0.3s;
+}
+
+.cloud { position: fixed; opacity: 0.6; z-index: 0; pointer-events: none; animation: floatCloud 20s linear infinite; }
+.cloud:nth-child(2) { animation-duration: 28s; top: 8%; opacity: 0.4; }
+.cloud:nth-child(3) { animation-duration: 35s; top: 15%; opacity: 0.3; }
+@keyframes floatCloud { from { transform: translateX(-200px); } to { transform: translateX(calc(100vw + 200px)); } }
+
+.card-tile { transition: transform 0.2s, box-shadow 0.2s; animation: gentleFloat 3s ease-in-out infinite; }
+.card-tile:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.card-tile:active { transform: scale(0.96); }
+@keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+.card-tile:nth-child(2) { animation-delay: 0.5s; }
+.card-tile:nth-child(3) { animation-delay: 1s; }
+
+.view { display: none; opacity: 0; transition: opacity 0.3s; }
+.view.active { display: block; opacity: 1; }
+
+.nav-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: #fff; border-top: 2px solid #e0e0e0; display: flex; justify-content: space-around; align-items: center; padding: 8px 0; height: 64px; }
+.nav-btn { display: flex; flex-direction: column; align-items: center; font-size: 11px; color: #666; cursor: pointer; border: none; background: none; padding: 4px 8px; border-radius: 8px; transition: all 0.2s; }
+.nav-btn.active { color: #ff6f61; font-weight: 700; }
+.nav-btn:hover { background: #f0f0f0; }
+.nav-btn span { font-size: 20px; }
+
+.confetti-piece { position: fixed; width: 10px; height: 10px; z-index: 9999; animation: confettiFall 2s forwards; }
+@keyframes confettiFall { 0% { transform: translateY(-100px) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+
+.arabic-text { font-family: 'Traditional Arabic', serif; direction: rtl; font-size: 1.5rem; line-height: 2; }
+.back-btn { cursor: pointer; background: #ff8a65; color: #fff; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 600; transition: transform 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+.back-btn:hover { transform: scale(1.05); }
+.content-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.speaker-btn { cursor: pointer; background: #e3f2fd; border: none; border-radius: 50%; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.speaker-btn:hover { background: #bbdefb; }
+.vocab-table { width: 100%; border-collapse: collapse; }
+.vocab-table th, .vocab-table td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; text-align: center; }
+.vocab-table th { background: #e8f5e9; font-weight: 600; }
+.quiz-option { cursor: pointer; border: 2px solid #e0e0e0; border-radius: 12px; padding: 12px 16px; margin: 8px 0; transition: all 0.2s; background: #fff; }
+.quiz-option:hover:not(.disabled):not(.correct):not(.wrong) { border-color: #42a5f5; background: #e3f2fd; }
+.quiz-option.correct { border-color: #4caf50 !important; background: #e8f5e9 !important; }
+.quiz-option.wrong { border-color: #f44336 !important; background: #ffebee !important; }
+.quiz-option.disabled { pointer-events: none; opacity: 0.9; }
+.progress-fill { transition: width 0.5s ease; }
+.badge { display: inline-flex; align-items: center; gap: 4px; background: #fff3e0; border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600; }
+    </style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/0179d719c431a79e.data_sdk.js" type="text/javascript" integrity="sha512-OsRvJkI5GkC3MJQcgotQYotpzrMSX415GiKKgvYdxQEEkzD/fdchShO2FMSy0PJr/tiINMXOk5Vl2zAgg6bUiA=="></script>
+  <script src="/_sdk/9432170dbd2ae0df.resizing_sdk.js" type="text/javascript" integrity="sha512-FeT+58sb1f9ejWPWFjCbJvTT+SDwGV+ngrHUnlO7TWEOoqwOLj6p256kO3vOL7DIWl1cIgrobiof8v2bOigwPg=="></script>
+ </head>
+ <body data-template-id="__page-root">
+  <div class="cloud" style="top:3%; font-size:3rem;">
+   ☁️
+  </div>
+  <div class="cloud" style="top:8%; font-size:2.5rem;">
+   ☁️
+  </div>
+  <div class="cloud" style="top:15%; font-size:2rem;">
+   ☁️
+  </div>
+  <div class="page-bg" id="app">
+   <!-- HOME -->
+   <div id="view-home" class="view active">
+    <div class="text-center pt-8 pb-4 relative z-10">
+     <div class="text-4xl mb-2">
+      📖
+     </div>
+     <h1 data-template-id="main-title" class="canva-text text-2xl font-bold text-indigo-900" style="color: rgb(30, 58, 95); font-weight: 700; font-style: normal; font-size: 32px;">Bahasa Arab Tahun 2</h1>
+     <p data-template-id="main-subtitle" class="canva-text text-sm text-indigo-700 mt-1" style="color: rgb(57, 73, 171); font-weight: 400; font-style: normal; font-size: 16px;">KSSR Semakan • 4 Unit + Tambahan</p>
+     <div class="max-w-xs mx-auto mt-3">
+      <div class="flex justify-between text-xs text-indigo-600 mb-1">
+       <span>Kemajuan</span><span id="progress-text">0%</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-3">
+       <div id="progress-bar" class="progress-fill bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full" style="width:0%"></div>
+      </div>
+     </div>
+     <div class="flex justify-center gap-3 mt-3">
+      <div class="badge">
+       ⭐ <span id="star-count">0</span>
+      </div>
+      <div class="badge">
+       🏅 <span id="badge-count">0</span>
+      </div>
+     </div>
+    </div>
+    <div class="max-w-md mx-auto px-4 space-y-4 relative z-10">
+     <div class="card-tile bg-white rounded-2xl p-6 text-center shadow-lg border-2 border-blue-200 cursor-pointer" onclick="showView('view-notes')">
+      <div class="text-3xl mb-2">
+       📚
+      </div>
+      <h2 data-template-id="card-nota" class="canva-text font-bold text-lg text-blue-800" style="color: rgb(21, 101, 192); font-weight: 700; font-style: normal; font-size: 24px;">Nota Pembelajaran</h2>
+     </div>
+     <div class="card-tile bg-white rounded-2xl p-6 text-center shadow-lg border-2 border-green-200 cursor-pointer" onclick="showView('view-exercise')">
+      <div class="text-3xl mb-2">
+       📝
+      </div>
+      <h2 data-template-id="card-latihan" class="canva-text font-bold text-lg text-green-800" style="color: rgb(46, 125, 50); font-weight: 700; font-style: normal; font-size: 24px;">Latihan &amp; Kuiz</h2>
+     </div>
+     <div class="card-tile bg-white rounded-2xl p-6 text-center shadow-lg border-2 border-yellow-200 cursor-pointer" onclick="showView('view-exam')">
+      <div class="text-3xl mb-2">
+       🏆
+      </div>
+      <h2 data-template-id="card-peperiksaan" class="canva-text font-bold text-lg text-yellow-800" style="color: rgb(245, 127, 23); font-weight: 700; font-style: normal; font-size: 24px;">Peperiksaan</h2>
+     </div>
+    </div>
+   </div><!-- NOTES LIST -->
+   <div id="view-notes" class="view">
+    <div class="text-center pt-6 pb-4 relative z-10">
+     <h1 data-template-id="notes-title" class="canva-text text-xl font-bold text-indigo-900" style="color: rgb(30, 58, 95); font-weight: 700; font-style: normal; font-size: 32px;">📚 Nota Pembelajaran</h1>
+    </div>
+    <div class="max-w-lg mx-auto px-4 grid grid-cols-2 gap-3 relative z-10" id="units-grid"></div>
+   </div><!-- UNIT DETAIL -->
+   <div id="view-unit-detail" class="view">
+    <div class="max-w-lg mx-auto px-4 pt-6 pb-8 relative z-10">
+     <div class="flex gap-2 mb-4 flex-wrap">
+      <button class="back-btn" onclick="showView('view-notes')">← Kembali</button> <button class="back-btn bg-blue-500" id="btn-prev-unit" onclick="navUnit(-1)">◀ Sebelum</button> <button class="back-btn bg-blue-500" id="btn-next-unit" onclick="navUnit(1)">Seterus ▶</button>
+     </div>
+     <div id="unit-detail-content"></div>
+    </div>
+   </div><!-- EXERCISE LIST -->
+   <div id="view-exercise" class="view">
+    <div class="text-center pt-6 pb-4 relative z-10">
+     <h1 data-template-id="exercise-title" class="canva-text text-xl font-bold text-green-900" style="color: rgb(27, 94, 32); font-weight: 700; font-style: normal; font-size: 32px;">📝 Latihan &amp; Kuiz</h1>
+    </div>
+    <div class="max-w-lg mx-auto px-4 grid grid-cols-2 gap-3 relative z-10" id="exercise-grid"></div>
+   </div><!-- QUIZ VIEW -->
+   <div id="view-quiz" class="view">
+    <div class="max-w-lg mx-auto px-4 pt-6 pb-8 relative z-10">
+     <div class="flex gap-2 mb-4">
+      <button class="back-btn" onclick="showView('view-exercise')">← Kembali</button> <button class="back-btn bg-blue-500" onclick="showView('view-home')">🏠 Home</button>
+     </div>
+     <div id="quiz-content"></div>
+    </div>
+   </div><!-- EXAM LIST -->
+   <div id="view-exam" class="view">
+    <div class="text-center pt-6 pb-4 relative z-10">
+     <h1 data-template-id="exam-title" class="canva-text text-xl font-bold text-yellow-900" style="color: rgb(230, 81, 0); font-weight: 700; font-style: normal; font-size: 32px;">🏆 Peperiksaan</h1>
+    </div>
+    <div class="max-w-md mx-auto px-4 space-y-4 relative z-10">
+     <div class="card-tile bg-white rounded-2xl p-6 text-center shadow-lg border-2 border-orange-200 cursor-pointer" onclick="openExam(1)">
+      <div class="text-3xl mb-2">
+       📄
+      </div>
+      <h2 data-template-id="exam-set-1" class="canva-text font-bold text-orange-800" style="color: rgb(230, 81, 0); font-weight: 700; font-style: normal; font-size: 24px;">SET 1</h2>
+     </div>
+     <div class="card-tile bg-white rounded-2xl p-6 text-center shadow-lg border-2 border-purple-200 cursor-pointer" onclick="openExam(2)">
+      <div class="text-3xl mb-2">
+       📄
+      </div>
+      <h2 data-template-id="exam-set-2" class="canva-text font-bold text-purple-800" style="color: rgb(106, 27, 154); font-weight: 700; font-style: normal; font-size: 24px;">SET 2</h2>
+     </div>
+    </div>
+   </div><!-- EXAM DETAIL -->
+   <div id="view-exam-detail" class="view">
+    <div class="max-w-lg mx-auto px-4 pt-6 pb-8 relative z-10">
+     <div class="flex gap-2 mb-4">
+      <button class="back-btn" onclick="showView('view-exam')">← Kembali</button> <button class="back-btn bg-blue-500" onclick="showView('view-home')">🏠 Home</button>
+     </div>
+     <div id="exam-content"></div>
+    </div>
+   </div><!-- SETTINGS -->
+   <div id="view-settings" class="view">
+    <div class="text-center pt-6 pb-4 relative z-10">
+     <h1 data-template-id="settings-title" class="canva-text text-xl font-bold text-indigo-900" style="color: rgb(30, 58, 95); font-weight: 700; font-style: normal; font-size: 32px;">⚙️ Tetapan</h1>
+    </div>
+    <div class="max-w-md mx-auto px-4 space-y-4 relative z-10">
+     <div class="bg-white rounded-2xl p-5 shadow-lg space-y-5">
+      <div class="flex justify-between items-center">
+       <span class="font-medium">🔊 Bunyi</span> <label class="relative inline-flex items-center cursor-pointer"> <input type="checkbox" id="toggle-sound" checked="" class="sr-only peer">
+        <div class="w-11 h-6 bg-gray-300 peer-checked:bg-green-400 rounded-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div></label>
+      </div>
+      <div class="flex justify-between items-center">
+       <span class="font-medium">🌙 Dark Mode</span> <label class="relative inline-flex items-center cursor-pointer"> <input type="checkbox" id="toggle-dark" class="sr-only peer">
+        <div class="w-11 h-6 bg-gray-300 peer-checked:bg-indigo-500 rounded-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div></label>
+      </div>
+     </div>
+     <div class="bg-white rounded-2xl p-5 shadow-lg">
+      <h3 class="font-bold text-lg mb-3">🏆 Ganjaran Saya</h3>
+      <div class="flex gap-4 mb-3">
+       <div class="text-center">
+        <div class="text-2xl">
+         ⭐
+        </div>
+        <div id="settings-stars" class="font-bold">
+         0
+        </div>
+        <div class="text-xs text-gray-500">
+         Bintang
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="text-2xl">
+         🏅
+        </div>
+        <div id="settings-badges" class="font-bold">
+         0
+        </div>
+        <div class="text-xs text-gray-500">
+         Lencana
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="text-2xl">
+         📚
+        </div>
+        <div id="settings-units" class="font-bold">
+         0/7
+        </div>
+        <div class="text-xs text-gray-500">
+         Topik Selesai
+        </div>
+       </div>
+      </div>
+      <div id="certificate-area"></div>
+     </div>
+    </div>
+   </div><!-- REWARDS VIEW -->
+   <div id="view-rewards" class="view">
+    <div class="text-center pt-6 pb-4 relative z-10">
+     <h1 class="text-xl font-bold text-indigo-900">🏆 Ganjaran</h1>
+    </div>
+    <div class="max-w-md mx-auto px-4 relative z-10">
+     <div class="content-card text-center">
+      <div class="text-4xl mb-2">
+       ⭐
+      </div>
+      <p class="font-bold text-2xl" id="reward-stars">0</p>
+      <p class="text-sm text-gray-500">Bintang Dikumpul</p>
+      <div class="mt-4 text-4xl mb-2">
+       🏅
+      </div>
+      <p class="font-bold text-2xl" id="reward-badges">0</p>
+      <p class="text-sm text-gray-500">Lencana Diperoleh</p>
+      <div class="mt-6 w-full bg-gray-200 rounded-full h-4">
+       <div id="reward-progress" class="progress-fill bg-gradient-to-r from-yellow-400 to-orange-500 h-4 rounded-full" style="width:0%"></div>
+      </div>
+      <p class="text-xs text-gray-500 mt-1">Kemajuan Keseluruhan</p>
+      <div id="reward-certificate" class="mt-4"></div>
+     </div>
+    </div>
+   </div>
+  </div><!-- BOTTOM NAV -->
+  <nav class="nav-bar" aria-label="Menu utama">
+   <button class="nav-btn active" data-nav="view-home" onclick="showView('view-home')"><span>🏠</span>Home</button> <button class="nav-btn" data-nav="view-notes" onclick="showView('view-notes')"><span>📚</span>Nota</button> <button class="nav-btn" data-nav="view-exercise" onclick="showView('view-exercise')"><span>📝</span>Latihan</button> <button class="nav-btn" data-nav="view-rewards" onclick="showView('view-rewards')"><span>🏆</span>Ganjaran</button> <button class="nav-btn" data-nav="view-settings" onclick="showView('view-settings')"><span>⚙️</span>Tetapan</button>
+  </nav>
+  <script>
+// ========== CURRICULUM DATA (KSSR Semakan - 4 Unit + 3 Tambahan) ==========
+const unitsData = [
+{
+    id: 1, title: "هَيَّا نَتَعَارَفْ", titleMs: "Unit 1: Mari Berkenalan", color: "#e3f2fd", border: "#90caf9",
+    emoji: "👋",
+    objective: "Murid dapat menggunakan ungkapan salam, memperkenalkan diri, dan memberi ucapan selamat.",
+    intro: "Dalam unit ini, kita belajar cara bersalam, bertanya nama, dan memperkenalkan diri dalam Bahasa Arab.",
+    vocab: [
+        { ar: "السلام عليكم", ms: "Salam sejahtera", rumi: "Assalaamu'alaikum" },
+        { ar: "وعليكم السلام", ms: "Dan ke atas kamu juga", rumi: "Wa'alaikumussalaam" },
+        { ar: "أهلا وسهلا", ms: "Selamat datang", rumi: "Ahlan wa sahlan" },
+        { ar: "ما اسمك؟", ms: "Siapa nama kamu? (L)", rumi: "Masmuka?" },
+        { ar: "ما اسمك؟", ms: "Siapa nama kamu? (P)", rumi: "Masmuki?" },
+        { ar: "اسمي", ms: "Nama saya", rumi: "Ismii" },
+        { ar: "كيف حالك؟", ms: "Apa khabar? (L)", rumi: "Kaifa haaluka?" },
+        { ar: "الحمد لله، أَنَا بِخَيْرٍ", ms: "Alhamdulillah, saya baik", rumi: "Alhamdulillah, ana bi khair" }
+    ],
+    sentences: [
+        { ar: "السلام عليكم يا أصدقائي", ms: "Salam sejahtera wahai kawan-kawan" },
+        { ar: "اسمي أحمد", ms: "Nama saya Ahmad" },
+        { ar: "أنا تلميذ في السنة الثانية", ms: "Saya murid Tahun 2" }
+    ],
+    dialog: [
+        { speaker: "أحمد", ar: "السلام عليكم", ms: "Salam sejahtera" },
+        { speaker: "علي", ar: "وعليكم السلام", ms: "Dan ke atas kamu juga" },
+        { speaker: "أحمد", ar: "ما اسمك؟", ms: "Siapa nama kamu?" },
+        { speaker: "علي", ar: "اسمي علي. وأنت؟", ms: "Nama saya Ali. Dan kamu?" },
+        { speaker: "أحمد", ar: "اسمي أحمد. أهلا وسهلا!", ms: "Nama saya Ahmad. Selamat datang!" }
+    ],
+    tips: "Ingat! مَا اسْمُكَ (masmuka) untuk bertanya nama lelaki, مَا اسْمُكِ (masmuki) untuk perempuan.",
+    summary: "Kita telah belajar ungkapan salam, cara memperkenalkan diri, dan bertanya khabar."
+},
+{
+    id: 2, title: "أُحِبُّ أُسْرَتِي", titleMs: "Unit 2: Saya Sayang Keluarga", color: "#fce4ec", border: "#f48fb1",
+    emoji: "👨‍👩‍👧‍👦",
+    objective: "Murid dapat mengenal dan menyebut ahli keluarga terdekat dalam Bahasa Arab.",
+    intro: "Keluarga adalah orang yang paling dekat dengan kita. Mari belajar menyebut ahli keluarga dalam Bahasa Arab.",
+    vocab: [
+        { ar: "أَبٌ", ms: "Bapa", rumi: "Abun" },
+        { ar: "أُمٌّ", ms: "Ibu", rumi: "Ummun" },
+        { ar: "جَدٌّ", ms: "Datuk", rumi: "Jaddun" },
+        { ar: "جَدَّةٌ", ms: "Nenek", rumi: "Jaddatun" },
+        { ar: "أَخٌ", ms: "Abang/Adik lelaki", rumi: "Akhun" },
+        { ar: "أُخْتٌ", ms: "Kakak/Adik perempuan", rumi: "Ukhtun" },
+        { ar: "عَمٌّ", ms: "Bapa saudara", rumi: "Ammun" },
+        { ar: "خَالَةٌ", ms: "Ibu saudara", rumi: "Khaalatun" }
+    ],
+    sentences: [
+        { ar: "هٰذَا أَبِي", ms: "Ini bapa saya" },
+        { ar: "هٰذِهِ أُمِّي", ms: "Ini ibu saya" },
+        { ar: "أَنَا أُحِبُّ أُسْرَتِي", ms: "Saya sayang keluarga saya" }
+    ],
+    dialog: [
+        { speaker: "أحمد", ar: "مَنْ هٰذَا؟", ms: "Siapa ini?" },
+        { speaker: "علي", ar: "هٰذَا أَبِي", ms: "Ini bapa saya" },
+        { speaker: "أحمد", ar: "مَا اسْمُهُ؟", ms: "Apa namanya?" },
+        { speaker: "علي", ar: "اِسْمُهُ إِبْرَاهِيم", ms: "Namanya Ibrahim" }
+    ],
+    tips: "Ingat! هٰذَا (haaza) untuk lelaki, هٰذِهِ (haazihi) untuk perempuan.",
+    summary: "Kita telah belajar 8 perkataan ahli keluarga dan cara bertanya serta menjawab tentang keluarga."
+},
+{
+    id: 3, title: "جِسْمِي السَّلِيمُ", titleMs: "Unit 3: Badan Saya Yang Sihat", color: "#e0f2f1", border: "#80cbc4",
+    emoji: "🖐️",
+    objective: "Murid dapat mengenal dan menyebut anggota badan manusia.",
+    intro: "Tubuh badan kita mempunyai banyak bahagian. Jom kenali namanya dalam Bahasa Arab!",
+    vocab: [
+        { ar: "رَأْسٌ", ms: "Kepala", rumi: "Ra'sun" },
+        { ar: "شَعْرٌ", ms: "Rambut", rumi: "Sya'run" },
+        { ar: "عَيْنٌ", ms: "Mata", rumi: "'Ainun" },
+        { ar: "أُذُنٌ", ms: "Telinga", rumi: "Uzunun" },
+        { ar: "أَنْفٌ", ms: "Hidung", rumi: "Anfun" },
+        { ar: "فَمٌ", ms: "Mulut", rumi: "Famun" },
+        { ar: "يَدٌ", ms: "Tangan", rumi: "Yadun" },
+        { ar: "رِجْلٌ", ms: "Kaki", rumi: "Rijlun" }
+    ],
+    sentences: [
+        { ar: "هٰذَا رَأْسِي", ms: "Ini kepala saya" },
+        { ar: "عِنْدِي عَيْنَانِ", ms: "Saya ada dua mata" },
+        { ar: "أَغْسِلُ يَدَيَّ", ms: "Saya basuh tangan saya" }
+    ],
+    dialog: [
+        { speaker: "المعلم", ar: "أَيْنَ أَنْفُكَ؟", ms: "Di mana hidungmu?" },
+        { speaker: "التلميذ", ar: "هٰذَا أَنْفِي", ms: "Ini hidung saya" },
+        { speaker: "المعلم", ar: "أَحْسَنْتَ! وَأَيْنَ أُذُنُكَ؟", ms: "Bagus! Dan di mana telingamu?" },
+        { speaker: "التلميذ", ar: "هٰذِهِ أُذُنِي", ms: "Ini telinga saya" }
+    ],
+    tips: "Dua (مثنى): عَيْنَانِ (2 mata), يَدَانِ (2 tangan), رِجْلَانِ (2 kaki).",
+    summary: "Kita telah belajar 8 anggota badan dan cara menunjuk serta menyebutnya."
+},
+{
+    id: 4, title: "حَافِظْ عَلَى الْأَدَوَاتِ الدِّرَاسِيَّةِ", titleMs: "Unit 4: Pelihara Peralatan Sekolah", color: "#fff3e0", border: "#ffcc80",
+    emoji: "🎒",
+    objective: "Murid dapat mengenal dan menyebut peralatan sekolah dalam Bahasa Arab.",
+    intro: "Peralatan sekolah sangat penting. Jom belajar nama alat tulis dan barang di dalam kelas.",
+    vocab: [
+        { ar: "قَلَمٌ", ms: "Pensel/Pen", rumi: "Qalamun" },
+        { ar: "كِتَابٌ", ms: "Buku", rumi: "Kitaabun" },
+        { ar: "مِسْطَرَةٌ", ms: "Pembaris", rumi: "Mistaratun" },
+        { ar: "حَقِيبَةٌ", ms: "Beg", rumi: "Haqiibatun" },
+        { ar: "مِمْحَاةٌ", ms: "Pemadam", rumi: "Mimhaatun" },
+        { ar: "كُرْسِيٌّ", ms: "Kerusi", rumi: "Kursiyyun" },
+        { ar: "مَكْتَبٌ", ms: "Meja", rumi: "Maktabun" },
+        { ar: "سَبُّورَةٌ", ms: "Papan tulis", rumi: "Sabbuuratun" }
+    ],
+    sentences: [
+        { ar: "هٰذَا قَلَمِي", ms: "Ini pensel saya" },
+        { ar: "هٰذَا كِتَابٌ جَدِيدٌ", ms: "Ini buku baharu" },
+        { ar: "حَافِظْ عَلَى حَقِيبَتِكَ", ms: "Jaga beg kamu" }
+    ],
+    dialog: [
+        { speaker: "المعلم", ar: "مَا هٰذَا؟", ms: "Apa ini?" },
+        { speaker: "التلميذ", ar: "هٰذَا قَلَمٌ", ms: "Ini pensel" },
+        { speaker: "المعلم", ar: "أَحْسَنْتَ! حَافِظْ عَلَيْهِ", ms: "Bagus! Jaga ia baik-baik" }
+    ],
+    tips: "Perkataan yang berakhir dengan ة (ta marbutah) biasanya muannath (perempuan). Contoh: حَقِيبَة، مِسْطَرَة",
+    summary: "Kita telah belajar 8 peralatan sekolah dan cara menyatakan milik serta menjaga barang."
+},
+{
+    id: 5, title: "الْحُرُوفُ الْهِجَائِيَّةُ", titleMs: "Huruf Hijaiyah Fokus", color: "#ede7f6", border: "#b39ddb",
+    emoji: "✍️",
+    objective: "Murid dapat menyebut, membaca, dan menulis huruf hijaiyah fokus mengikut kedudukan dalam kalimah.",
+    intro: "Huruf hijaiyah berubah bentuk mengikut kedudukan: awal, tengah, dan akhir kalimah. Mari belajar huruf fokus Tahun 2.",
+    vocab: [
+        { ar: "ل", ms: "Lam", rumi: "Lam" },
+        { ar: "ي", ms: "Ya'", rumi: "Ya'" },
+        { ar: "و", ms: "Wau", rumi: "Wau" },
+        { ar: "س", ms: "Sin", rumi: "Sin" },
+        { ar: "ه", ms: "Ha'", rumi: "Ha'" },
+        { ar: "ر", ms: "Ra'", rumi: "Ra'" },
+        { ar: "ف", ms: "Fa'", rumi: "Fa'" },
+        { ar: "ط", ms: "Tha'", rumi: "Tha'" }
+    ],
+    sentences: [
+        { ar: "لَـ ـلَـ ـل (Lam: awal, tengah, akhir)", ms: "Kedudukan huruf Lam" },
+        { ar: "يَـ ـيَـ ـي (Ya': awal, tengah, akhir)", ms: "Kedudukan huruf Ya'" },
+        { ar: "فَـ ـفَـ ـف (Fa': awal, tengah, akhir)", ms: "Kedudukan huruf Fa'" }
+    ],
+    dialog: [
+        { speaker: "المعلم", ar: "اُكْتُبْ حَرْفَ اللَّامِ", ms: "Tulis huruf Lam" },
+        { speaker: "التلميذ", ar: "هٰذَا حَرْفُ اللَّامِ: ل", ms: "Ini huruf Lam: ل" },
+        { speaker: "المعلم", ar: "مُمْتَازٌ!", ms: "Cemerlang!" }
+    ],
+    tips: "Huruf ق (Qaf) juga termasuk huruf fokus Tahun 2. Baris: fathah (atas), kasrah (bawah), dammah (depan), sukun (mati), syaddah (sabdu).",
+    summary: "Kita telah belajar huruf fokus Tahun 2: ل، ي، و، س، ه، ر، ف، ط، ق dan kedudukannya dalam kalimah."
+},
+{
+    id: 6, title: "الْأَرْقَامُ وَالْأَعْدَادُ", titleMs: "Nombor 11 hingga 20", color: "#e8f5e9", border: "#a5d6a7",
+    emoji: "🔢",
+    objective: "Murid dapat membilang, mengecam, dan menulis nombor 11 hingga 20 dalam Bahasa Arab.",
+    intro: "Selepas belajar nombor 1-10 di Tahun 1, sekarang kita belajar nombor 11 hingga 20!",
+    vocab: [
+        { ar: "أَحَدَ عَشَرَ", ms: "11 (Sebelas)", rumi: "Ahada 'Asyara" },
+        { ar: "اِثْنَا عَشَرَ", ms: "12 (Dua belas)", rumi: "Itsna 'Asyara" },
+        { ar: "ثَلَاثَةَ عَشَرَ", ms: "13 (Tiga belas)", rumi: "Tsalaatsata 'Asyara" },
+        { ar: "أَرْبَعَةَ عَشَرَ", ms: "14 (Empat belas)", rumi: "Arba'ata 'Asyara" },
+        { ar: "خَمْسَةَ عَشَرَ", ms: "15 (Lima belas)", rumi: "Khamsata 'Asyara" },
+        { ar: "سِتَّةَ عَشَرَ", ms: "16 (Enam belas)", rumi: "Sittata 'Asyara" },
+        { ar: "سَبْعَةَ عَشَرَ", ms: "17 (Tujuh belas)", rumi: "Sab'ata 'Asyara" },
+        { ar: "عِشْرُونَ", ms: "20 (Dua puluh)", rumi: "'Isyruun" }
+    ],
+    sentences: [
+        { ar: "عِنْدِي خَمْسَةَ عَشَرَ كِتَابًا", ms: "Saya ada 15 buah buku" },
+        { ar: "فِي الْفَصْلِ عِشْرُونَ تِلْمِيذًا", ms: "Di dalam kelas ada 20 murid" },
+        { ar: "عُمْرِي اِثْنَا عَشَرَ سَنَةً", ms: "Umur saya 12 tahun" }
+    ],
+    dialog: [
+        { speaker: "المعلم", ar: "كَمْ تِلْمِيذًا فِي الْفَصْلِ؟", ms: "Berapa murid di dalam kelas?" },
+        { speaker: "التلميذ", ar: "عِشْرُونَ تِلْمِيذًا", ms: "20 orang murid" },
+        { speaker: "المعلم", ar: "أَحْسَنْتَ!", ms: "Bagus!" }
+    ],
+    tips: "Nombor 11-19 dalam bahasa Arab menggunakan perkataan عَشَرَ ('asyara) yang bermaksud 'sepuluh'. Nombor 20 ialah عِشْرُونَ ('isyruun).",
+    summary: "Kita telah belajar nombor 11 hingga 20 dan cara menggunakannya dalam ayat."
+},
+{
+    id: 7, title: "التَّرَاكِيبُ اللُّغَوِيَّةُ", titleMs: "Tatabahasa Mudah", color: "#fff8e1", border: "#ffd54f",
+    emoji: "📐",
+    objective: "Murid dapat menggunakan kata tunjuk (Ismu Isyarah) dan kata tanya (Adawatul Istifham) dalam ayat mudah.",
+    intro: "Tatabahasa membantu kita membina ayat yang betul. Mari belajar kata tunjuk dan kata tanya!",
+    vocab: [
+        { ar: "هٰذَا", ms: "Ini (lelaki)", rumi: "Haaza" },
+        { ar: "هٰذِهِ", ms: "Ini (perempuan)", rumi: "Haazihi" },
+        { ar: "مَنْ", ms: "Siapa", rumi: "Man" },
+        { ar: "مَا", ms: "Apa", rumi: "Maa" },
+        { ar: "هَلْ", ms: "Adakah", rumi: "Hal" },
+        { ar: "أَيْنَ", ms: "Di mana", rumi: "Aina" },
+        { ar: "نَعَمْ", ms: "Ya", rumi: "Na'am" },
+        { ar: "لَا", ms: "Tidak", rumi: "Laa" }
+    ],
+    sentences: [
+        { ar: "هٰذَا قَلَمٌ", ms: "Ini pensel (lelaki)" },
+        { ar: "هٰذِهِ حَقِيبَةٌ", ms: "Ini beg (perempuan)" },
+        { ar: "مَنْ هٰذَا؟ هٰذَا أَبِي", ms: "Siapa ini? Ini bapa saya" }
+    ],
+    dialog: [
+        { speaker: "سارة", ar: "هَلْ هٰذَا كِتَابُكَ؟", ms: "Adakah ini buku kamu?" },
+        { speaker: "أحمد", ar: "نَعَمْ، هٰذَا كِتَابِي", ms: "Ya, ini buku saya" },
+        { speaker: "سارة", ar: "أَيْنَ قَلَمُكَ؟", ms: "Di mana pensel kamu?" },
+        { speaker: "أحمد", ar: "قَلَمِي عَلَى الْمَكْتَبِ", ms: "Pensel saya atas meja" }
+    ],
+    tips: "هٰذَا (haaza) untuk benda/orang lelaki. هٰذِهِ (haazihi) untuk benda/orang perempuan. هَلْ (hal) untuk soalan ya/tidak.",
+    summary: "Kita telah belajar kata tunjuk (هٰذَا/هٰذِهِ) dan kata tanya (مَنْ، مَا، هَلْ، أَيْنَ) serta cara menggunakannya."
+}
+];
+
+const unitImages = [
+    "unit1-image",
+    "unit2-image",
+    "unit3-image",
+    "unit4-image",
+    "unit5-image",
+    "unit6-image",
+    "unit7-image"
+];
+
+const TOTAL_UNITS = unitsData.length;
+
+// ========== REWARDS STATE ==========
+let stars = 0, badges = 0, completedUnits = new Set();
+
+function updateRewards() {
+    document.getElementById('star-count').textContent = stars;
+    document.getElementById('badge-count').textContent = badges;
+    document.getElementById('settings-stars').textContent = stars;
+    document.getElementById('settings-badges').textContent = badges;
+    document.getElementById('settings-units').textContent = completedUnits.size + '/' + TOTAL_UNITS;
+    document.getElementById('reward-stars').textContent = stars;
+    document.getElementById('reward-badges').textContent = badges;
+    const pct = Math.round((completedUnits.size / TOTAL_UNITS) * 100);
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = pct + '%';
+    document.getElementById('reward-progress').style.width = pct + '%';
+    const certArea = document.getElementById('certificate-area');
+    const certArea2 = document.getElementById('reward-certificate');
+    if (completedUnits.size >= TOTAL_UNITS) {
+        const cert = '<div class="mt-4 p-4 border-2 border-yellow-400 rounded-xl bg-yellow-50 text-center"><div class="text-3xl">🎉</div><p class="font-bold text-yellow-800">Sijil Pencapaian</p><p class="text-sm text-yellow-700">Tahniah! Anda telah melengkapkan semua ' + TOTAL_UNITS + ' topik Bahasa Arab Tahun 2!</p></div>';
+        certArea.innerHTML = cert;
+        certArea2.innerHTML = cert;
+    }
+}
+
+function playArabicPronunciation(text) {
+    if (!document.getElementById('toggle-sound').checked) return;
+    
+    // Use Web Speech API for authentic Arabic pronunciation
+    if ('speechSynthesis' in window) {
+        // Cancel any ongoing speech first
+        window.speechSynthesis.cancel();
+        
+        // Simplify text by removing diacritics for clearer pronunciation
+        // Pass only the core Arabic letters without full vocalization marks
+        const simplified = text
+            .replace(/ً|ٌ|ٍ|َ|ِ|ُ|ّ|ْ|ٰ/g, '') // Remove all Arabic diacritical marks
+            .replace(/\s+/g, ' ') // Normalize spaces
+            .trim();
+        
+        // Create utterance with the simplified Arabic text
+        const utterance = new SpeechSynthesisUtterance(simplified);
+        utterance.lang = 'ar-SA'; // Standard Arabic (Saudi)
+        utterance.rate = 0.8; // Slightly slower for clarity
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+        
+        // Speak the text using native Arabic voice
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+// ========== NAVIGATION ==========
+let currentUnit = 0;
+
+function showView(id) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.nav === id));
+    window.scrollTo(0, 0);
+}
+
+function navUnit(dir) {
+    const newIdx = currentUnit + dir;
+    if (newIdx >= 0 && newIdx < TOTAL_UNITS) openUnit(newIdx + 1);
+}
+
+// ========== UNIT DETAIL ==========
+function openUnit(n) {
+    currentUnit = n - 1;
+    const unit = unitsData[currentUnit];
+    const img = unitImages[currentUnit];
+    document.getElementById('btn-prev-unit').style.display = currentUnit === 0 ? 'none' : '';
+    document.getElementById('btn-next-unit').style.display = currentUnit === TOTAL_UNITS - 1 ? 'none' : '';
+
+    // Update all unit images visibility and set image element
+    unitImages.forEach((imgId, idx) => {
+        const imgEl = document.querySelector(`[data-template-id="${imgId}"]`);
+        if (imgEl) imgEl.classList.toggle('hidden', idx !== currentUnit);
+    });
+
+    let html = `
+    <div class="content-card mb-4" style="background:${unit.color}; border: 2px solid ${unit.border}">
+        <div class="text-center">
+            <div class="text-4xl mb-2">${unit.emoji}</div>
+            <h2 class="arabic-text text-2xl font-bold">${unit.title}</h2>
+            <p class="font-bold text-lg">${unit.titleMs}</p>
+        </div>
+    </div>
+
+    <div class="content-card mb-4">
+        <h3 class="font-bold text-blue-800 mb-2">🎯 Objektif</h3>
+        <p>${unit.objective}</p>
+    </div>
+    <div class="content-card mb-4">
+        <h3 class="font-bold text-blue-800 mb-2">📖 Pengenalan</h3>
+        <p>${unit.intro}</p>
+    </div>
+    <div class="content-card mb-4">
+        <h3 class="font-bold text-blue-800 mb-2">📝 Kosa Kata</h3>
+        <table class="vocab-table text-sm">
+            <thead><tr><th>Bahasa Arab</th><th>Sebutan</th><th>Maksud</th><th>🔊</th></tr></thead>
+            <tbody>${unit.vocab.map(v => `<tr><td class="arabic-text text-base">${v.ar}</td><td>${v.rumi}</td><td>${v.ms}</td><td><button class="speaker-btn" onclick="playArabicPronunciation('${v.ar}')" aria-label="Dengar sebutan">🔊</button></td></tr>`).join('')}</tbody>
+        </table>
+    </div>
+    <div class="content-card mb-4">
+        <h3 class="font-bold text-blue-800 mb-2">✏️ Contoh Ayat</h3>
+        ${unit.sentences.map(s => `<div class="flex items-center gap-2 mb-2"><button class="speaker-btn" onclick="playArabicPronunciation('${s.ar}')" aria-label="Dengar">🔊</button><div><p class="arabic-text text-base">${s.ar}</p><p class="text-sm text-gray-600">${s.ms}</p></div></div>`).join('')}
+    </div>
+    <div class="content-card mb-4">
+        <h3 class="font-bold text-blue-800 mb-2">💬 Dialog</h3>
+        ${unit.dialog.map(d => `<div class="flex items-start gap-2 mb-2"><button class="speaker-btn" onclick="playArabicPronunciation('${d.ar}')" aria-label="Dengar">🔊</button><div><span class="font-bold text-xs text-indigo-600">${d.speaker}:</span><p class="arabic-text text-base">${d.ar}</p><p class="text-sm text-gray-600">${d.ms}</p></div></div>`).join('')}
+    </div>
+    <div class="content-card mb-4" style="background:#fffde7">
+        <h3 class="font-bold text-yellow-800 mb-2">💡 Tip Mengingat</h3>
+        <p>${unit.tips}</p>
+    </div>
+    <div class="content-card mb-4" style="background:#e8f5e9">
+        <h3 class="font-bold text-green-800 mb-2">📋 Ringkasan</h3>
+        <p>${unit.summary}</p>
+    </div>`;
+    document.getElementById('unit-detail-content').innerHTML = html;
+    showView('view-unit-detail');
+}
+
+// ========== QUIZ BANK FOR UNIT 1 ==========
+const unit1QuizBank = [
+    { q: `Apakah maksud ucapan "صَبَاحُ الْخَيْرِ" (Sabah al-Khair)?`, correct: "Selamat pagi", options: ["Selamat petang", "Selamat malam", "Selamat pagi", "Selamat tinggal"] },
+    { q: `Apakah jawapan yang betul bagi ucapan "صَبَاحُ النُّورِ" (Sabah an-Nur)?`, correct: "صَبَاحُ الْخَيْرِ", options: ["مَسَاءُ الْخَيْرِ", "صَبَاحُ الْخَيْرِ", "أَهْلًا بِكَ", "مَعَ السَّلَامَةِ"] },
+    { q: `Apakah maksud ucapan "مَسَاءُ الْخَيْرِ" (Masa' al-Khair)?`, correct: "Selamat petang", options: ["Selamat pagi", "Selamat petang", "Selamat datang", "Apa khabar"] },
+    { q: `Bagaimanakah anda menjawab ucapan "مَسَاءُ الْخَيْرِ"?`, correct: "مَسَاءُ النُّورِ", options: ["مَسَاءُ النُّورِ", "صَبَاحُ النُّورِ", "أَهْلًا وَسَهْلًا", "اَلْحَمْدُ لِلّٰه"] },
+    { q: `Apakah maksud ucapan "أَهْلًا وَسَهْلًا" (Ahlan wa sahlan)?`, correct: "Selamat datang", options: ["Terima kasih", "Selamat tinggal", "Selamat datang", "Sila masuk"] },
+    { q: `Apakah jawapan yang paling tepat bagi ucapan "أَهْلًا وَسَهْلًا"?`, correct: "أَهْلًا بِكَ / بِكِ", options: ["أَهْلًا بِكَ / بِكِ", "صَبَاحُ الْخَيْرِ", "مَعَ السَّلَامَةِ", "شُكْرًا"] },
+    { q: `Frasa "كَيْفَ حَالُكَ؟" (Kaifa haluka) ditanyakan kepada...`, correct: "Seorang murid lelaki", options: ["Seorang murid perempuan", "Seorang murid lelaki", "Guru perempuan", "Ibu bapa"] },
+    { q: `Apakah maksud bagi soalan "كَيْفَ حَالُكِ؟" (Kaifa haluki)?`, correct: "Apa khabar kamu?", options: ["Siapa nama kamu?", "Di mana kamu tinggal?", "Apa khabar kamu?", "Berapakah umur kamu?"] },
+    { q: `Apakah jawapan yang betul bagi soalan "كَيْفَ حَالُكَ؟"?`, correct: "أَنَا بِخَيْرٍ وَالْحَمْدُ لِلَّهِ", options: ["اِسْمِي أَحْمَدُ", "أَنَا بِخَيْرٍ وَالْحَمْدُ لِلَّهِ", "أَهْلًا بِكَ", "مَعَ السَّلَامَةِ"] },
+    { q: `Apakah maksud soalan "مَا اِسْمُكَ؟" (Ma ismuka)?`, correct: "Siapa nama kamu (lelaki)?", options: ["Siapa nama kamu (lelaki)?", "Siapa nama kamu (perempuan)?", "Di mana kamu belajar?", "Kamu darjah berapa?"] },
+    { q: `Jika seorang murid perempuan ditanya tentang namanya, soalan yang betul ialah...`, correct: "مَا اِسْمُكِ؟", options: ["مَا اِسْمُكَ؟", "مَا اِسْمُكِ؟", "مَنْ أَنْتَ؟", "مَنْ أَنْتِ؟"] },
+    { q: `Bagaimanakah cara menjawab soalan "مَا اِسْمُكَ؟"?`, correct: "اِسْمِي بِلَالٌ", options: ["أَنَا تِلْمِيذٌ", "اِسْمِي تِلْمِيذٌ", "اِسْمِي بِلَالٌ", "بِخَيْرٍ وَالْحَمْدُ لِلَّهِ"] },
+    { q: `Perkataan "تِلْمِيذٌ" (Tilmizun) bermaksud...`, correct: "Murid lelaki", options: ["Guru lelaki", "Guru perempuan", "Murid lelaki", "Murid perempuan"] },
+    { q: `Perkataan "تِلْمِيذَةٌ" (Tilmizatun) bermaksud...`, correct: "Murid perempuan", options: ["Murid lelaki", "Murid perempuan", "Guru lelaki", "Guru perempuan"] },
+    { q: `Apakah maksud perkataan "مُعَلِّمٌ" (Mu'allimun)?`, correct: "Guru lelaki", options: ["Guru lelaki", "Guru perempuan", "Guru Besar", "Murid"] },
+    { q: `Perkataan "مُعَلِّمَةٌ" (Mu'allimatun) bermaksud...`, correct: "Guru perempuan", options: ["Murid perempuan", "Guru perempuan", "Kerani sekolah", "Guru lelaki"] },
+    { q: `Apakah maksud ucapan "مَعَ السَّلَامَةِ" (Ma'as salamah)?`, correct: "Selamat tinggal", options: ["Selamat datang", "Terima kasih banyak", "Selamat tinggal", "Sila duduk"] },
+    { q: `Jawapan bagi ucapan "مَعَ السَّلَامَةِ" ialah...`, correct: "إِلَى اللِّقَاءِ", options: ["أَهْلًا وَسَهْلًا", "إِلَى اللِّقَاءِ", "صَبَاحُ الْخَيْرِ", "شُكْرًا"] },
+    { q: `Pilih perkataan yang mengandungi huruf fokus "ل" di awal kalimah:`, correct: "لَبَنٌ", options: ["بَصَلٌ", "لَبَنٌ", "قَلَمٌ", "جَمَلٌ"] },
+    { q: `Pilih perkataan yang mengandungi huruf fokus "ي" di tengah kalimah:`, correct: "عَيْنٌ", options: ["يَدٌ", "بَيْتٌ", "كُرْسِيٌّ", "عَيْنٌ"] },
+    { q: `Antara berikut, perkataan manakah yang bermaksud "Saya"?`, correct: "أَنَا", options: ["أَنْتَ", "أَنْتِ", "أَنَا", "هُوَ"] },
+    { q: `Perkataan "أَنْتَ" (Anta) digunakan untuk merujuk kepada...`, correct: "Kamu (lelaki)", options: ["Saya", "Kamu (lelaki)", "Kamu (perempuan)", "Dia"] },
+    { q: `Perkataan "أَنْتِ" (Anti) digunakan untuk merujuk kepada...`, correct: "Kamu (perempuan)", options: ["Kamu (perempuan)", "Kamu (lelaki)", "Saya", "Mereka"] },
+    { q: `Seseorang mengucapkan "شُكْرًا" (Syukran) kepada anda. Apakah jawapan anda?`, correct: "عَفْوًا", options: ["مَعَ السَّلَامَةِ", "عَفْوًا", "أَهْلًا بِكَ", "اَلْحَمْدُ لِلَّهِ"] },
+    { q: `Kalimah "تِلْمِيذَةٌ" (Tilmizatun) sesuai dipadankan dengan kata ganti nama...`, correct: "أَنَا / أَنْتِ", options: ["أَنَا / أَنْتَ", "أَنَا / أَنْتِ", "أَنْتَ / هُوَ", "أَنْتَ فقط"] }
+];
+
+// ========== QUIZ BANK FOR UNIT 2 ==========
+const unit2QuizBank = [
+    { q: `Apakah maksud perkataan "أَبٌ" (Abun)?`, correct: "Bapa", options: ["Ibu", "Datuk", "Bapa", "Abang"] },
+    { q: `Perkataan "أُمٌّ" (Ummun) bermaksud...`, correct: "Ibu", options: ["Nenek", "Ibu", "Kakak", "Emak saudara"] },
+    { q: `Apakah maksud perkataan "جَدٌّ" (Jaddun)?`, correct: "Datuk", options: ["Datuk", "Nenek", "Bapa", "Bapa saudara"] },
+    { q: `Perkataan "جَدَّةٌ" (Jaddatun) bermaksud...`, correct: "Nenek", options: ["Ibu", "Kakak", "Nenek", "Adik perempuan"] },
+    { q: `Perkataan "أَخٌ" (Akhun) merujuk kepada...`, correct: "Saudara lelaki (Abang/Adik lelaki)", options: ["Saudara perempuan (Kakak/Adik perempuan)", "Saudara lelaki (Abang/Adik lelaki)", "Bapa saudara", "Sepupu lelaki"] },
+    { q: `Perkataan "أُخْتٌ" (Ukhtun) merujuk kepada...`, correct: "Saudara perempuan", options: ["Saudara lelaki", "Saudara perempuan", "Ibu", "Nenek"] },
+    { q: `Apakah maksud "عَمٌّ" (Ammun)?`, correct: "Bapa saudara (sebelah bapa)", options: ["Bapa saudara (sebelah bapa)", "Emak saudara (sebelah bapa)", "Datuk", "Sepupu"] },
+    { q: `Apakah maksud "عَمَّةٌ" (Ammatun)?`, correct: "Emak saudara (sebelah bapa)", options: ["Bapa saudara", "Emak saudara (sebelah bapa)", "Ibu", "Kakak"] },
+    { q: `Kata tunjuk "هَذَا" (Haza) digunakan untuk...`, correct: "Perkataan Lelaki (Muzakkar)", options: ["Perkataan Lelaki (Muzakkar)", "Perkataan Perempuan (Muannas)", "Nombor", "Kata kerja"] },
+    { q: `Kata tunjuk "هَذِهِ" (Hazihi) digunakan untuk...`, correct: "Perkataan Perempuan (Muannas)", options: ["Perkataan Lelaki (Muzakkar)", "Perkataan Perempuan (Muannas)", "Semua jenis benda", "Nombor"] },
+    { q: `Antara berikut, gandingan manakah yang BETUL?`, correct: "هَذَا أَبِي", options: ["هَذَا أُمِّي", "هَذَا جَدَّتِي", "هَذَا أَبِي", "هَذَا أُخْتِي"] },
+    { q: `Antara berikut, gandingan manakah yang BETUL?`, correct: "هَذِهِ أُمِّي", options: ["هَذِهِ أَبِي", "هَذِهِ جَدِّي", "هَذِهِ أُمِّي", "هَذِهِ أَخِي"] },
+    { q: `Kata tanya "مَنْ" (Man) bermaksud...`, correct: "Siapa", options: ["Apa", "Siapa", "Mana", "Berapa"] },
+    { q: `Jika seseorang bertanya "مَنْ هَذَا؟", jawapan yang sesuai ialah...`, correct: "هَذَا جَدِّي", options: ["هَذَا قَلَمٌ", "هَذِهِ أُمِّي", "هَذَا جَدِّي", "هَذِهِ مَدْرَسَةٌ"] },
+    { q: `Jika seseorang bertanya "مَنْ هَذِهِ؟", jawapan yang sesuai ialah...`, correct: "هَذِهِ عَمَّتِي", options: ["هَذَا أَخِي", "هَذِهِ عَمَّتِي", "هَذَا عَمِّي", "هَذَا أَبِي"] },
+    { q: `Apakah maksud ungkapan "أَنَا أُحِبُّ أُسْرَتِي"?`, correct: "Saya sayang keluarga saya", options: ["Saya menjaga keluarga saya", "Saya sayang keluarga saya", "Ini keluarga saya", "Keluarga saya besar"] },
+    { q: `Pilih perkataan yang mempunyai huruf fokus "و" di awal kalimah:`, correct: "وَرْدَةٌ", options: ["وَرْدَةٌ", "مَوْزٌ", "دَلْوٌ", "لَوْحٌ"] },
+    { q: `Pilih perkataan yang mempunyai huruf fokus "س" dengan baris bawah (kasrah):`, correct: "سِتَارٌ", options: ["سَمَكٌ", "سِتَارٌ", "سُوقٌ", "شَمْسٌ"] },
+    { q: `Perkataan "أَنَا أُحِبُّ أَبِي" bermaksud...`, correct: "Saya sayang bapa saya", options: ["Saya sayang ibu saya", "Saya sayang datuk saya", "Saya sayang bapa saya", "Saya sayang abang saya"] },
+    { q: `Perkataan "أَنَا أُحِبُّ أُمِّي" bermaksud...`, correct: "Saya sayang ibu saya", options: ["Saya sayang abang saya", "Saya sayang nenek saya", "Saya sayang ibu saya", "Saya sayang kakak saya"] },
+    { q: `Pilih kumpulan perkataan yang semuanya merujuk kepada lelaki (Muzakkar):`, correct: "أَبٌ ، جَدٌّ ، عَمٌّ", options: ["أَبٌ ، جَدٌّ ، عَمٌّ", "أُمٌّ ، جَدَّةٌ ، عَمَّةٌ", "أَبٌ ، أُمٌّ ، أَخٌ", "جَدٌّ ، جَدَّةٌ ، أُخْتٌ"] },
+    { q: `Pilih kumpulan perkataan yang semuanya merujuk kepada perempuan (Muannas):`, correct: "أُمٌّ ، جَدَّةٌ ، أُخْتٌ", options: ["أَبٌ ، عَمٌّ ، أَخٌ", "أُمٌّ ، جَدَّةٌ ، أُخْتٌ", "جَدٌّ ، جَدَّةٌ ، عَمٌّ", "أُخْتٌ ، أَخٌ ، أُمٌّ"] },
+    { q: `Perkataan "عَمِّي" bermaksud...`, correct: "Bapa saudara saya", options: ["Bapa saudara saya", "Emak saudara saya", "Sepupu saya", "Datuk saya"] },
+    { q: `Perkataan "عَمَّتِي" bermaksud...`, correct: "Emak saudara saya", options: ["Kakak saya", "Nenek saya", "Emak saudara saya", "Ibu saya"] },
+    { q: `Kalimah "أَخِي" bermaksud...`, correct: "Adik/Abang lelaki saya", options: ["Adik/Abang lelaki saya", "Adik/Kakak perempuan saya", "Bapa saya", "Datuk saya"] }
+];
+
+// ========== QUIZ BANK FOR UNIT 3 ==========
+const unit3QuizBank = [
+    { q: `Apakah maksud perkataan "رَأْسٌ" (Ra'sun)?`, correct: "Kepala", options: ["Mata", "Kepala", "Tangan", "Kaki"] },
+    { q: `Perkataan "شَعْرٌ" (Sya'run) bermaksud...`, correct: "Rambut", options: ["Rambut", "Telinga", "Hidung", "Mulut"] },
+    { q: `Apakah maksud perkataan "عَيْنٌ" (Ainun)?`, correct: "Mata", options: ["Telinga", "Mata", "Hidung", "Pipi"] },
+    { q: `Perkataan "أُذُنٌ" (Uzunun) bermaksud...`, correct: "Telinga", options: ["Mulut", "Tangan", "Telinga", "Lidah"] },
+    { q: `Apakah maksud perkataan "أَنْفٌ" (Anfun)?`, correct: "Hidung", options: ["Hidung", "Gigi", "Kepala", "Kaki"] },
+    { q: `Perkataan "فَمٌ" (Famun) bermaksud...`, correct: "Mulut", options: ["Gigi", "Lidah", "Mulut", "Pipi"] },
+    { q: `Perkataan "لِسَانٌ" (Lisanun) bermaksud...`, correct: "Lidah", options: ["Gigi", "Lidah", "Mulut", "Leher"] },
+    { q: `Apakah maksud perkataan "أَسْنَانٌ" (Asnanun)?`, correct: "Gigi", options: ["Kuku", "Rambut", "Gigi", "Tangan"] },
+    { q: `Perkataan "خَدٌّ" (Khaddun) bermaksud...`, correct: "Pipi", options: ["Pipi", "Dahi", "Dagu", "Leher"] },
+    { q: `Apakah maksud perkataan "يَدٌ" (Yadun)?`, correct: "Tangan", options: ["Kaki", "Tangan", "Perut", "Dada"] },
+    { q: `Perkataan "رِجْلٌ" (Rijlun) bermaksud...`, correct: "Kaki", options: ["Tangan", "Kepala", "Kaki", "Jari"] },
+    { q: `Anggota badan yang berpasangan dianggap Muannas. Antara berikut, yang manakah menggunakan "هَذِهِ"?`, correct: "عَيْنٌ", options: ["رَأْسٌ", "أَنْفٌ", "عَيْنٌ", "فَمٌ"] },
+    { q: `Anggota badan yang tunggal dianggap Muzakkar. Antara berikut, yang manakah menggunakan "هَذَا"?`, correct: "أَنْفٌ", options: ["عَيْنٌ", "أُذُنٌ", "يَدٌ", "أَنْفٌ"] },
+    { q: `Pilih gandingan kata tunjuk dan anggota badan yang SALAH:`, correct: "هَذَا عَيْنٌ", options: ["هَذَا رَأْسٌ", "هَذَا عَيْنٌ", "هَذِهِ يَدٌ", "هَذِهِ رِجْلٌ"] },
+    { q: `Pilih gandingan kata tunjuk dan anggota badan yang BETUL:`, correct: "هَذَا لِسَانٌ", options: ["هَذِهِ أَنْفٌ", "هَذِهِ فَمٌ", "هَذَا لِسَانٌ", "هَذَا أُذُنٌ"] },
+    { q: `Kata tanya "مَا" (Ma) bermaksud...`, correct: "Apa", options: ["Siapa", "Apa", "Kenapa", "Bagaimana"] },
+    { q: `Jika ditanya "مَا هَذَا؟" (menunjuk kepada hidung), jawapan yang betul ialah...`, correct: "هَذَا أَنْفٌ", options: ["هَذَا أَنْفٌ", "هَذِهِ عَيْنٌ", "هَذَا فَمٌ", "هَذِهِ أُذُنٌ"] },
+    { q: `Jika ditanya "مَا هَذِهِ؟" (menunjuk kepada telinga), jawapan yang betul ialah...`, correct: "هَذِهِ أُذُنٌ", options: ["هَذَا رَأْسٌ", "هَذِهِ أُذُنٌ", "هَذِهِ يَدٌ", "هَذَا فَمٌ"] },
+    { q: `Kata sifat "نَظِيفٌ" (Nazifun) bermaksud...`, correct: "Bersih", options: ["Cantik", "Bersih", "Sihat", "Kuat"] },
+    { q: `Kata sifat "جَمِيلٌ" (Jamilun) bermaksud...`, correct: "Cantik", options: ["Bersih", "Cantik", "Baharu", "Besar"] },
+    { q: `Pilih perkataan yang menggunakan huruf fokus "هـ" di awal kalimah:`, correct: "هِلَالٌ", options: ["هِلَالٌ", "وَجْهٌ", "فِيلٌ", "نَهْرٌ"] },
+    { q: `Pilih perkataan yang menggunakan huruf fokus "ر" dengan baris hadapan (dammah):`, correct: "رُمَّانٌ", options: ["رِمَاحٌ", "رُمَّانٌ", "رَبِيعٌ", "قَرْيَةٌ"] },
+    { q: `Apakah maksud ungkapan "عَيْنِي جَمِيلَةٌ"?`, correct: "Mata saya cantik", options: ["Telinga saya bersih", "Mata saya cantik", "Kepala saya sihat", "Tangan saya bersih"] },
+    { q: `Apakah maksud ungkapan "فَمِي نَظِيفٌ"?`, correct: "Mulut saya bersih", options: ["Hidung saya bersih", "Gigi saya putih", "Mulut saya bersih", "Lidah saya sihat"] },
+    { q: `"شَعْرِي ..." Pilih kata sifat yang sesuai untuk rambut (Muzakkar):`, correct: "نَظِيفٌ", options: ["جَمِيلَةٌ", "نَظِيفٌ", "نَظِيفَةٌ", "جَمِيلَةٌ"] }
+];
+
+// ========== QUIZ BANK FOR UNIT 4 ==========
+const unit4QuizBank = [
+    { q: `Apakah maksud perkataan "قَلَمٌ" (Qalamun)?`, correct: "Pensel / Pen", options: ["Pembaris", "Pensel / Pen", "Buku tulis", "Pemadam"] },
+    { q: `Perkataan "كِتَابٌ" (Kitabun) bermaksud...`, correct: "Buku (Teks/Rujukan)", options: ["Beg", "Pembaris", "Buku (Teks/Rujukan)", "Pensel"] },
+    { q: `Perkataan "قَلَمُ رَصَاصٍ" (Qalamu rasasin) bermaksud...`, correct: "Pensel", options: ["Pen", "Pensel", "Pembaris", "Pengasah pensel"] },
+    { q: `Apakah maksud perkataan "مِسْطَرَةٌ" (Mistaratun)?`, correct: "Pembaris", options: ["Pemadam", "Pembaris", "Pengasah", "Beg"] },
+    { q: `Perkataan "مِمْحَاةٌ" (Mimhatun) bermaksud...`, correct: "Pemadam", options: ["Pemadam", "Pembaris", "Beg", "Kotak pensel"] },
+    { q: `Perkataan "مِبْرَاةٌ" (Mibratun) bermaksud...`, correct: "Pengasah pensel", options: ["Beg sekolah", "Pengasah pensel", "Pembaris", "Buku tulis"] },
+    { q: `Apakah maksud perkataan "حَقِيبَةٌ" (Haqibatun)?`, correct: "Beg", options: ["Kotak pensel", "Beg", "Meja", "Kerusi"] },
+    { q: `Perkataan "دَفْتَرٌ" (Daftarun) bermaksud...`, correct: "Buku tulis / Buku nota", options: ["Buku tulis / Buku nota", "Buku teks", "Pembaris", "Fail"] },
+    { q: `Apakah maksud perkataan "مِقْلَمَةٌ" (Miqlamatun)?`, correct: "Kotak pensel", options: ["Beg sekolah", "Kotak pensel", "Meja tulis", "Pengasah pensel"] },
+    { q: `Perkataan "وَرَقٌ" (Waraqun) bermaksud...`, correct: "Kertas", options: ["Kertas", "Buku", "Pemadam", "Pensel warna"] },
+    { q: `Antara berikut, perkataan manakah yang dikira Muannas (ada Ta Marbutah ة)?`, correct: "مِسْطَرَةٌ", options: ["قَلَمٌ", "كِتَابٌ", "مِسْطَرَةٌ", "دَفْتَرٌ"] },
+    { q: `Antara berikut, perkataan manakah yang dikira Muzakkar (tiada Ta Marbutah ة)?`, correct: "كِتَابٌ", options: ["مِمْحَاةٌ", "مِبْرَاةٌ", "حَقِيبَةٌ", "كِتَابٌ"] },
+    { q: `Pilih gandingan kata tunjuk dan peralatan sekolah yang BETUL:`, correct: "هَذَا كِتَابٌ", options: ["هَذَا مِسْطَرَةٌ", "هَذَا حَقِيبَةٌ", "هَذَا كِتَابٌ", "هَذِهِ قَلَمٌ"] },
+    { q: `Pilih gandingan kata tunjuk dan peralatan sekolah yang BETUL:`, correct: "هَذِهِ مِمْحَاةٌ", options: ["هَذِهِ دَفْتَرٌ", "هَذِهِ قَلَمٌ", "هَذِهِ مِمْحَاةٌ", "هَذَا مِبْرَاةٌ"] },
+    { q: `Jika guru bertanya "مَا هَذَا؟" (menunjuk kepada buku tulis), jawapan murid ialah...`, correct: "هَذَا دَفْتَرٌ", options: ["هَذَا كِتَابٌ", "هَذَا دَفْتَرٌ", "هَذِهِ مِسْطَرَةٌ", "هَذِهِ حَقِيبَةٌ"] },
+    { q: `Jika guru bertanya "مَا هَذِهِ؟" (menunjuk kepada beg), jawapan murid ialah...`, correct: "هَذِهِ حَقِيبَةٌ", options: ["هَذَا قَلَمٌ", "هَذِهِ حَقِيبَةٌ", "هَذِهِ مِقْلَمَةٌ", "هَذَا دَفْتَرٌ"] },
+    { q: `Apakah nombor 11 dalam bahasa Arab?`, correct: "أَحَدَ عَشَرَ", options: ["أَحَدَ عَشَرَ", "اِثْنَا عَشَرَ", "ثَلَاثَةَ عَشَرَ", "أَرْبَعَةَ عَشَرَ"] },
+    { q: `Apakah nombor 12 dalam bahasa Arab?`, correct: "اِثْنَا عَشَرَ", options: ["أَحَدَ عَشَرَ", "اِثْنَا عَشَرَ", "خَمْسَةَ عَشَرَ", "عِشْرُونَ"] },
+    { q: `"خَمْسَةَ عَشَرَ" merujuk kepada nombor angka...`, correct: "15", options: ["13", "14", "15", "16"] },
+    { q: `Apakah nombor 20 dalam bahasa Arab?`, correct: "عِشْرُونَ", options: ["عِشْرُونَ", "تِسْعَةَ عَشَرَ", "ثَمَانِيَةَ عَشَرَ", "سَبْعَةَ عَشَرَ"] },
+    { q: `Nombor "17" ditulis dalam perkataan bahasa Arab sebagai...`, correct: "سَبْعَةَ عَشَرَ", options: ["سِتَّةَ عَشَرَ", "سَبْعَةَ عَشَرَ", "ثَمَانِيَةَ عَشَرَ", "تِسْعَةَ عَشَرَ"] },
+    { q: `Pilih perkataan yang mempunyai huruf fokus "ف" di awal kalimah:`, correct: "فِيلٌ", options: ["فِيلٌ", "صَفٌّ", "عَصْفُورٌ", "مَحْفَظَةٌ"] },
+    { q: `Pilih perkataan yang mempunyai huruf fokus "ط" di tengah kalimah:`, correct: "مَطَارٌ", options: ["طَبِيبٌ", "مَطَارٌ", "قِطٌّ", "بَطَّةٌ"] },
+    { q: `Pilih perkataan yang mempunyai huruf fokus "ق" di akhir kalimah:`, correct: "سُوقٌ", options: ["قَمَرٌ", "بَقَرَةٌ", "سُوقٌ", "حَقِيبَةٌ"] },
+    { q: `Slogan "حَافِظْ عَلَى الْأَدَوَاتِ الدِّرَاسِيَّةِ" membawa maksud...`, correct: "Peliharalah/Jagalah peralatan sekolah", options: ["Belajarlah bersungguh-sungguh di sekolah", "Peliharalah/Jagalah peralatan sekolah", "Susunlah buku-buku di dalam beg", "Belilah peralatan sekolah yang baharu"] }
+];
+
+// ========== QUIZ SYSTEM ==========
+function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+function generateQuiz(unitIdx) {
+    // Unit 1 uses dedicated bank with no repeats on retry
+    if (unitIdx === 0) {
+        const shuffled = shuffle([...unit1QuizBank]);
+        return shuffled.slice(0, 10);
+    }
+    
+    // Unit 2 uses dedicated bank with no repeats on retry
+    if (unitIdx === 1) {
+        const shuffled = shuffle([...unit2QuizBank]);
+        return shuffled.slice(0, 10);
+    }
+    
+    // Unit 3 uses dedicated bank with no repeats on retry
+    if (unitIdx === 2) {
+        const shuffled = shuffle([...unit3QuizBank]);
+        return shuffled.slice(0, 10);
+    }
+    
+    // Unit 4 uses dedicated bank with no repeats on retry
+    if (unitIdx === 3) {
+        const shuffled = shuffle([...unit4QuizBank]);
+        return shuffled.slice(0, 10);
+    }
+    
+    // Other units use original logic
+    const unit = unitsData[unitIdx];
+    let questions = [];
+    unit.vocab.forEach((v, i) => {
+        const wrongAnswers = shuffle(unit.vocab.filter((_, idx) => idx !== i)).slice(0, 3).map(w => w.ms);
+        questions.push({ q: `Apakah maksud "${v.ar}" ?`, correct: v.ms, options: shuffle([v.ms, ...wrongAnswers]) });
+    });
+    unit.vocab.slice(0, 4).forEach((v, i) => {
+        const wrongAnswers = shuffle(unit.vocab.filter((_, idx) => idx !== i)).slice(0, 3).map(w => w.ar);
+        questions.push({ q: `"${v.ms}" dalam Bahasa Arab ialah:`, correct: v.ar, options: shuffle([v.ar, ...wrongAnswers]) });
+    });
+    return shuffle(questions).slice(0, 10);
+}
+
+let quizState = { questions: [], current: 0, score: 0, answered: false, unitIdx: 0 };
+
+function openExercise(n) {
+    quizState.unitIdx = n - 1;
+    quizState.questions = generateQuiz(quizState.unitIdx);
+    quizState.current = 0;
+    quizState.score = 0;
+    renderQuizQuestion();
+    showView('view-quiz');
+}
+
+function renderQuizQuestion() {
+    const q = quizState.questions[quizState.current];
+    if (!q) { renderQuizResult(); return; }
+    quizState.answered = false;
+    const unit = unitsData[quizState.unitIdx];
+    let html = `
+    <div class="content-card mb-4" style="background:${unit.color}">
+        <div class="flex justify-between items-center mb-3">
+            <span class="font-bold text-sm">Soalan ${quizState.current + 1} / ${quizState.questions.length}</span>
+            <span class="badge">⭐ ${quizState.score}</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4"><div class="bg-green-500 h-2 rounded-full" style="width:${((quizState.current) / quizState.questions.length) * 100}%"></div></div>
+        <p class="font-bold text-lg mb-4 arabic-text">${q.q}</p>
+        <div id="quiz-options">
+            ${q.options.map((opt, i) => `<div class="quiz-option" onclick="selectAnswer(${i})" id="opt-${i}"><span class="font-bold mr-2">${String.fromCharCode(65 + i)}.</span> <span class="${opt.match(/[\u0600-\u06FF]/) ? 'arabic-text text-base' : ''}">${opt}</span></div>`).join('')}
+        </div>
+        <div id="quiz-feedback" class="mt-3 hidden"></div>
+    </div>`;
+    document.getElementById('quiz-content').innerHTML = html;
+}
+
+function selectAnswer(idx) {
+    if (quizState.answered) return;
+    quizState.answered = true;
+    const q = quizState.questions[quizState.current];
+    const correctIdx = q.options.indexOf(q.correct);
+    const feedback = document.getElementById('quiz-feedback');
+    document.querySelectorAll('.quiz-option').forEach(el => el.classList.add('disabled'));
+    document.getElementById('opt-' + correctIdx).classList.add('correct');
+    if (idx === correctIdx) {
+        quizState.score++;
+        feedback.innerHTML = '<p class="text-green-600 font-bold">✅ Betul! Syabas!</p>';
+    } else {
+        document.getElementById('opt-' + idx).classList.add('wrong');
+        feedback.innerHTML = `<p class="text-red-600 font-bold">❌ Salah.</p><p class="text-sm text-gray-600">Jawapan betul: <span class="font-bold">${q.correct}</span></p>`;
+    }
+    feedback.classList.remove('hidden');
+    setTimeout(() => { quizState.current++; renderQuizQuestion(); }, 1500);
+}
+
+function renderQuizResult() {
+    const total = quizState.questions.length;
+    const pct = Math.round((quizState.score / total) * 100);
+    const pass = pct >= 60;
+    const excellent = pct >= 80;
+    if (pass) { stars += quizState.score; completedUnits.add(quizState.unitIdx); if (excellent) badges++; updateRewards(); }
+    if (excellent) triggerConfetti();
+    let html = `<div class="content-card text-center">
+        <div class="text-5xl mb-3">${excellent ? '🎉' : pass ? '👍' : '💪'}</div>
+        <h3 class="font-bold text-xl mb-2">${excellent ? 'Cemerlang!' : pass ? 'Tahniah! Anda Lulus!' : 'Cuba Lagi!'}</h3>
+        <div class="grid grid-cols-2 gap-3 my-4">
+            <div class="bg-green-50 rounded-xl p-3"><p class="text-2xl font-bold text-green-600">${quizState.score}</p><p class="text-xs">Betul</p></div>
+            <div class="bg-red-50 rounded-xl p-3"><p class="text-2xl font-bold text-red-600">${total - quizState.score}</p><p class="text-xs">Salah</p></div>
+            <div class="bg-blue-50 rounded-xl p-3"><p class="text-2xl font-bold text-blue-600">${quizState.score}/${total}</p><p class="text-xs">Markah</p></div>
+            <div class="bg-purple-50 rounded-xl p-3"><p class="text-2xl font-bold text-purple-600">${pct}%</p><p class="text-xs">Peratus</p></div>
+        </div>
+        ${!pass ? '<p class="text-sm text-gray-600 mb-3">Anda perlu 60% untuk lulus. Teruskan usaha! 💪</p>' : ''}
+        <div class="flex gap-3 justify-center flex-wrap">
+            <button class="back-btn bg-green-500" onclick="openExercise(${quizState.unitIdx + 1})">🔄 Cuba Lagi</button>
+            <button class="back-btn bg-blue-500" onclick="showView('view-exercise')">📝 Senarai</button>
+            <button class="back-btn" onclick="showView('view-home')">🏠 Home</button>
+        </div>
+    </div>`;
+    document.getElementById('quiz-content').innerHTML = html;
+}
+
+// ========== EXAM BANK SET 1 (50 Questions) ==========
+const set1QuestionBank = [
+    { q: 'Seseorang menyebut "صَبَاحُ الْخَيْرِ". Apakah respons yang betul?', correct: 'صَبَاحُ النُّورِ', options: ['مَسَاءُ النُّورِ', 'صَبَاحُ النُّورِ', 'مَعَ السَّلَامَةِ'] },
+    { q: 'Apakah maksud bagi ucapan "أَهْلًا وَسَهْلًا"?', correct: 'Selamat datang', options: ['Selamat tinggal', 'Terima kasih', 'Selamat datang'] },
+    { q: 'Pilih padanan yang betul bagi perkataan "أُمٌّ":', correct: 'Ibu', options: ['Ibu', 'Nenek', 'Kakak'] },
+    { q: 'Apakah perkataan bahasa Arab bagi gambar "Datuk"?', correct: 'جَدٌّ', options: ['أَبٌ', 'جَدٌّ', 'عَمٌّ'] },
+    { q: 'Antara berikut, yang manakah bermaksud "Hidung"?', correct: 'أَنْفٌ', options: ['أَنْفٌ', 'فَمٌ', 'عَيْنٌ'] },
+    { q: 'Perkataan "لِسَانٌ" merujuk kepada anggota badan...', correct: 'Lidah', options: ['Gigi', 'Pipi', 'Lidah'] },
+    { q: 'Apakah maksud bagi peralatan sekolah "مِسْطَرَةٌ"?', correct: 'Pembaris', options: ['Pemadam', 'Pembaris', 'Pengasah'] },
+    { q: 'Perkataan "قَلَمُ رَصَاصٍ" bermaksud...', correct: 'Pensel', options: ['Pensel', 'Pen', 'Pembaris'] },
+    { q: 'Bagaimanakah nombor 13 ditulis dalam perkataan bahasa Arab?', correct: 'ثَلَاثَةَ عَشَرَ', options: ['أَحَدَ عَشَرَ', 'اِثْنَا عَشَرَ', 'ثَلَاثَةَ عَشَرَ'] },
+    { q: 'Perkataan "عِشْرُونَ" mewakili nombor...', correct: '20', options: ['11', '15', '20'] },
+    { q: 'Perkataan "أَخٌ" bermaksud...', correct: 'Saudara lelaki (Abang/Adik lelaki)', options: ['Saudara lelaki (Abang/Adik lelaki)', 'Saudara perempuan (Kakak/Adik perempuan)', 'Bapa saudara'] },
+    { q: 'Apakah maksud bagi perkataan "عَمَّةٌ"?', correct: 'Emak saudara sebelah bapa', options: ['Nenek sebelah bapa', 'Emak saudara sebelah bapa', 'Ibu kandung'] },
+    { q: 'Apakah perkataan bahasa Arab bagi anggota badan "Gigi"?', correct: 'أَسْنَانٌ', options: ['أَسْنَانٌ', 'خَدٌّ', 'فَمٌ'] },
+    { q: 'Perkataan "خَدٌّ" merujuk kepada...', correct: 'Pipi', options: ['Dahi', 'Pipi', 'Dagu'] },
+    { q: 'Apakah maksud bagi peralatan kelas "دَفْتَرٌ"?', correct: 'Buku tulis / Buku nota', options: ['Buku teks', 'Buku tulis / Buku nota', 'Kotak pensel'] },
+    { q: 'Perkataan "مِقْلَمَةٌ" bermaksud...', correct: 'Kotak pensel', options: ['Beg sekolah', 'Kotak pensel', 'Pembaris panjang'] },
+    { q: 'Bagaimanakah nombor 11 ditulis dalam perkataan bahasa Arab?', correct: 'أَحَدَ عَشَرَ', options: ['أَحَدَ عَشَرَ', 'اِثْنَا عَشَرَ', 'ثَلَاثَةَ عَشَرَ'] },
+    { q: 'Nombor "15" ditulis dalam perkataan bahasa Arab sebagai...', correct: 'خَمْسَةَ عَشَرَ', options: ['خَمْسَةَ عَشَرَ', 'سِتَّةَ عَشَرَ', 'سَبْعَةَ عَشَرَ'] },
+    { q: 'Angka manakah yang mewakili perkataan "تِسْعَةَ عَشَرَ"?', correct: '19', options: ['16', '18', '19'] },
+    { q: 'Seseorang guru berkata "إِلَى اللِّقَاءِ". Apakah jawapan yang sesuai bagi murid?', correct: 'مَعَ السَّلَامَةِ', options: ['مَعَ السَّلَامَةِ', 'أَهْلًا بِكَ', 'صَبَاحُ النُّورِ'] },
+    { q: 'Pilih ayat yang menggunakan kata tunjuk yang betul untuk ahli keluarga lelaki:', correct: 'هَذَا أَبِي', options: ['هَذَا أَبِي', 'هَذِهِ أَبِي', 'هَذَا أُمِّي'] },
+    { q: '"هَذِهِ ... جَمِيلَةٌ." Perkataan yang sesuai untuk tempat kosong (Muannas) ialah:', correct: 'أُخْتِي', options: ['جَدِّي', 'أُخْتِي', 'أَخِي'] },
+    { q: 'Anggota badan yang berpasangan menggunakan "هَذِهِ". Pilih ayat yang BETUL:', correct: 'هَذِهِ عَيْنٌ', options: ['هَذَا عَيْنٌ', 'هَذِهِ عَيْنٌ', 'هَذِهِ أَنْفٌ'] },
+    { q: 'Guru menunjuk ke arah kepala dan bertanya "مَا هَذَا؟". Jawapan murid ialah:', correct: 'هَذَا رَأْسٌ', options: ['هَذَا رَأْسٌ', 'هَذِهِ رِجْلٌ', 'هَذَا فَمٌ'] },
+    { q: 'Pilih gandingan kata tunjuk dan peralatan kelas yang BETUL:', correct: 'هَذِهِ مِمْحَاةٌ', options: ['هَذَا حَقِيبَةٌ', 'هَذِهِ كِتَابٌ', 'هَذِهِ مِمْحَاةٌ'] },
+    { q: 'Pilih ayat yang menggunakan kata ganti nama yang betul jika seorang murid lelaki memperkenalkan diri:', correct: 'أَنَا تِلْمِيذٌ', options: ['أَنْتَ تِلْمِيذٌ', 'أَنَا تِلْمِيذٌ', 'أَنْتِ تِلْمِيذَةٌ'] },
+    { q: '"مَا اِسْمُكِ؟" Soalan ini ditanyakan khusus kepada...', correct: 'Murid perempuan', options: ['Murid lelaki', 'Murid perempuan', 'Guru lelaki'] },
+    { q: 'Jika rakan anda bertanya "كَيْفَ حَالُكَ؟", apakah respons yang betul?', correct: 'أَنَا بِخَيْرٍ وَالْحَمْدُ لِلَّهِ', options: ['اِسْمِي بِلَالٌ', 'أَنَا بِخَيْرٍ وَالْحَمْدُ لِلَّهِ', 'أَنَا تِلْمِيذٌ'] },
+    { q: 'Pilih ayat yang menggunakan kata tunjuk yang betul untuk ibu:', correct: 'هَذِهِ أُمِّي', options: ['هَذَا أُمِّي', 'هَذِهِ أُمِّي', 'هَذَا أَبِي'] },
+    { q: 'Antara ayat berikut, yang manakah bermaksud "Saya sayang bapa saya"?', correct: 'أَنَا أُحِبُّ أَبِي', options: ['أَنَا أُحِبُّ أُمِّي', 'أَنَا أُحِبُّ أَبِي', 'أَنَا أُحِبُّ جَدِّي'] },
+    { q: 'Anggota badan yang tunggal menggunakan kata tunjuk "هَذَا". Pilih ayat yang BETUL:', correct: 'هَذَا فَمٌ', options: ['هَذِهِ فَمٌ', 'هَذَا فَمٌ', 'هَذِهِ رَأْسٌ'] },
+    { q: '"يَدِي ..." (Tangan saya bersih). Kerana tangan berpasangan (Muannas), pilih kata sifat yang betul:', correct: 'نَظِيفَةٌ', options: ['نَظِيفٌ', 'نَظِيفَةٌ', 'جَمِيلٌ'] },
+    { q: 'Murid ingin memberitahu "Ini pemadam saya". Ayat yang betul ialah...', correct: 'هَذِهِ مِمْحَاتِي', options: ['هَذَا مِمْحَاتِي', 'هَذِهِ مِمْحَاتِي', 'هَذَا كِتَابِي'] },
+    { q: 'Antara berikut, gandingan manakah yang SALAH dari segi tatabahasa?', correct: 'هَذَا حَقِيبَةٌ', options: ['هَذَا قَلَمٌ', 'هَذِهِ مِسْطَرَةٌ', 'هَذَا حَقِيبَةٌ'] },
+    { q: 'Apakah maksud ungkapan "رَأْسِي نَظِيفٌ"?', correct: 'Kepala saya bersih', options: ['Kepala saya bersih', 'Rambut saya hitam', 'Muka saya bersih'] },
+    { q: 'Pilih perkataan yang mempunyai huruf "ل" di awal kalimah:', correct: 'لَبَنٌ', options: ['لَبَنٌ', 'قَلَمٌ', 'جَمَلٌ'] },
+    { q: 'Perkataan yang mengandungi huruf "ي" di tengah kalimah ialah:', correct: 'عَيْنٌ', options: ['يَدٌ', 'عَيْنٌ', 'كُرْسِيٌّ'] },
+    { q: 'Perkataan manakah yang mengandungi huruf "س" berbaris bawah (kasrah)?', correct: 'سِتَارٌ', options: ['سَمَكٌ', 'سُوقٌ', 'سِتَارٌ'] },
+    { q: 'Pilih perkataan yang mengandungi huruf "ر" berbaris hadapan (dammah):', correct: 'رُمَّانٌ', options: ['رُمَّانٌ', 'رَبِيعٌ', 'رِمَاحٌ'] },
+    { q: 'Pilih perkataan yang mempunyai huruf "ق" di akhir kalimah:', correct: 'سُوقٌ', options: ['قَمَرٌ', 'بَقَرَةٌ', 'سُوقٌ'] },
+    { q: 'Pilih perkataan yang mengandungi huruf fokus "ل" di akhir kalimah:', correct: 'بَصَلٌ', options: ['لَبَنٌ', 'بَصَلٌ', 'قَلَمٌ'] },
+    { q: 'Perkataan manakah yang menunjukkan huruf "ي" berada di awal kalimah?', correct: 'يَدٌ', options: ['بَيْتٌ', 'عَيْنٌ', 'يَدٌ'] },
+    { q: 'Pilih perkataan yang mengandungi huruf fokus "و" di tengah kalimah:', correct: 'مَوْزٌ', options: ['وَرْدَةٌ', 'مَوْزٌ', 'دَلْوٌ'] },
+    { q: 'Perkataan yang mengandungi huruf "س" berbaris atas (fathah) ialah:', correct: 'سَمَكٌ', options: ['سَمَكٌ', 'سِتَارٌ', 'سُوقٌ'] },
+    { q: 'Pilih perkataan yang mengandungi huruf fokus "هـ" di tengah kalimah:', correct: 'نَهْرٌ', options: ['هِلَالٌ', 'نَهْرٌ', 'وَجْهٌ'] },
+    { q: 'Perkataan yang mengandungi huruf "ر" berbaris bawah (kasrah) ialah:', correct: 'رِمَاحٌ', options: ['رَبِيعٌ', 'رُمَّانٌ', 'رِمَاحٌ'] },
+    { q: 'Pilih perkataan yang mempunyai huruf fokus "ف" di tengah kalimah:', correct: 'عَصْفُورٌ', options: ['فِيلٌ', 'عَصْفُورٌ', 'صَفٌّ'] },
+    { q: 'Perkataan manakah yang menunjukkan huruf "ط" di awal kalimah?', correct: 'طَبِيبٌ', options: ['طَبِيبٌ', 'مَطَارٌ', 'بَطَّةٌ'] },
+    { q: 'Pilih perkataan yang mempunyai huruf fokus "ق" di tengah kalimah:', correct: 'بَقَرَةٌ', options: ['قَمَرٌ', 'بَقَرَةٌ', 'سُوقٌ'] },
+    { q: 'Susun suku kata ini supaya menjadi perkataan yang betul mengikut buku teks: [ بَ - حِـ - قَـ - ةٌ ]', correct: 'حَقِيبَةٌ', options: ['مِقْلَمَةٌ', 'مِسْطَرَةٌ', 'حَقِيبَةٌ'] }
+];
+
+// ========== EXAM BANK SET 2 (50 Questions - Comprehensive) ==========
+const set2QuestionBank = [
+    { q: 'Seseorang menyebut "مَسَاءُ الْخَيْرِ". Apakah respons yang betul?', correct: 'مَسَاءُ النُّورِ', options: ['صَبَاحُ النُّورِ', 'مَسَاءُ النُّورِ', 'أَهْلًا بِكَ'] },
+    { q: 'Apakah maksud bagi soalan "مَا اِسْمُكَ؟"?', correct: 'Siapa nama kamu?', options: ['Siapa nama kamu?', 'Apa khabar kamu?', 'Di mana kamu tinggal?'] },
+    { q: 'Pilih padanan yang betul bagi perkataan "أَخٌ":', correct: 'Abang / Adik lelaki', options: ['Kakak / Adik perempuan', 'Abang / Adik lelaki', 'Bapa saudara'] },
+    { q: 'Apakah perkataan bahasa Arab bagi "Nenek"?', correct: 'جَدَّةٌ', options: ['أُمٌّ', 'جَدٌّ', 'جَدَّةٌ'] },
+    { q: 'Antara berikut, yang manakah bermaksud "Rambut"?', correct: 'شَعْرٌ', options: ['شَعْرٌ', 'رَأْسٌ', 'خَدٌّ'] },
+    { q: 'Perkataan "أَسْنَانٌ" merujuk kepada anggota badan...', correct: 'Gigi', options: ['Jari', 'Gigi', 'Telinga'] },
+    { q: 'Apakah maksud bagi peralatan sekolah "حَقِيبَةٌ"?', correct: 'Beg sekolah', options: ['Kotak pensel', 'Buku nota', 'Beg sekolah'] },
+    { q: 'Perkataan "مِبْرَاةٌ" bermaksud...', correct: 'Pengasah pensel', options: ['Pengasah pensel', 'Pemadam', 'Pembaris'] },
+    { q: 'Bagaimanakah nombor 15 ditulis dalam perkataan bahasa Arab?', correct: 'خَمْسَةَ عَشَرَ', options: ['خَمْسَةَ عَشَرَ', 'أَرْبَعَةَ عَشَرَ', 'سِتَّةَ عَشَرَ'] },
+    { q: 'Perkataan "اِثْنَا عَشَرَ" mewakili nombor...', correct: '12', options: ['11', '12', '14'] },
+    { q: 'Perkataan "أُخْتٌ" bermaksud...', correct: 'Saudara perempuan (Kakak/Adik perempuan)', options: ['Saudara lelaki (Abang/Adik lelaki)', 'Saudara perempuan (Kakak/Adik perempuan)', 'Emak saudara'] },
+    { q: 'Apakah maksud bagi perkataan "عَمٌّ"?', correct: 'Bapa saudara sebelah bapa', options: ['Datuk sebelah ibu', 'Bapa saudara sebelah bapa', 'Abang kandung'] },
+    { q: 'Apakah perkataan bahasa Arab bagi anggota badan "Telinga"?', correct: 'أُذُنٌ', options: ['أُذُنٌ', 'عَيْنٌ', 'رَأْسٌ'] },
+    { q: 'Perkataan "رِجْلٌ" merujuk kepada...', correct: 'Kaki', options: ['Tangan', 'Kaki', 'Kepala'] },
+    { q: 'Apakah maksud bagi peralatan kelas "كِتَابٌ"?', correct: 'Buku rujukan / Buku teks', options: ['Buku rujukan / Buku teks', 'Buku tulis / Buku nota', 'Kertas ujian'] },
+    { q: 'Perkataan "وَرَقٌ" bermaksud...', correct: 'Kertas', options: ['Pemadam', 'Pembaris', 'Kertas'] },
+    { q: 'Bagaimanakah nombor 12 ditulis dalam perkataan bahasa Arab?', correct: 'اِثْنَا عَشَرَ', options: ['أَحَدَ عَشَرَ', 'اِثْنَا عَشَرَ', 'ثَلَاثَةَ عَشَرَ'] },
+    { q: 'Nombor "14" ditulis dalam perkataan bahasa Arab sebagai...', correct: 'أَرْبَعَةَ عَشَرَ', options: ['أَرْبَعَةَ عَشَرَ', 'خَمْسَةَ عَشَرَ', 'سِتَّةَ عَشَرَ'] },
+    { q: 'Angka manakah yang mewakili perkataan "عِشْرُونَ"?', correct: '20', options: ['10', '12', '20'] },
+    { q: 'Seseorang mengucapkan "شُكْرًا" atas bantuan anda. Apakah jawapan paling sopan?', correct: 'عَفْوًا', options: ['عَفْوًا', 'أَهْلًا بِكَ', 'مَعَ السَّلَامَةِ'] },
+    { q: 'Pilih ayat yang menggunakan kata tunjuk yang betul untuk ahli keluarga perempuan:', correct: 'هَذِهِ عَمَّتِي', options: ['هَذَا عَمَّتِي', 'هَذِهِ عَمَّتِي', 'هَذِهِ عَمِّي'] },
+    { q: 'Kawan anda bertanya "مَنْ هَذَا؟" sambil menunjuk ke arah abangnya. Jawapan yang betul ialah:', correct: 'هَذَا أَخِي', options: ['هَذَا أَخِي', 'هَذِهِ أُخْتِي', 'هَذَا أُمِّي'] },
+    { q: 'Anggota badan yang tunggal menggunakan "هَذَا". Pilih ayat yang BETUL:', correct: 'هَذَا أَنْفٌ', options: ['هَذِهِ أَنْفٌ', 'هَذَا أَنْفٌ', 'هَذَا عَيْنٌ'] },
+    { q: '"فَمِي ..." (Mulut saya bersih). Pilih kata sifat yang betul bagi struktur Muzakkar:', correct: 'نَظِيفٌ', options: ['نَظِيفٌ', 'نَظِيفَةٌ', 'جَمِيلَةٌ'] },
+    { q: 'Murid ingin menyatakan "Ini buku saya". Ayat yang betul ialah:', correct: 'هَذَا كِتَابِي', options: ['هَذِهِ كِتَابِي', 'هَذَا كِتَابِي', 'هَذَا دَفْتَرِي'] },
+    { q: 'Pilih ayat yang menggunakan kata ganti nama yang betul jika seorang guru ingin menyapa murid perempuan:', correct: 'أَنْتِ تِلْمِيذَةٌ', options: ['أَنْتَ تِلْمِيذٌ', 'أَنْتِ تِلْمِيذَةٌ', 'أَنَا مُعَلِّمَةٌ'] },
+    { q: '"مَا اِسْمُكَ؟" Soalan ini ditanyakan khusus kepada...', correct: 'Murid lelaki', options: ['Murid lelaki', 'Murid perempuan', 'Guru perempuan'] },
+    { q: 'Jika guru bertanya "مَنْ أَنْتِ؟" kepada seorang murid perempuan, jawapan yang betul ialah:', correct: 'أَنَا تِلْمِيذَةٌ', options: ['أَنَا مُعَلِّمٌ', 'أَنَا تِلْمِيذَةٌ', 'أَنَا تِلْمِيذٌ'] },
+    { q: 'Pilih ayat yang menggunakan kata tunjuk yang betul untuk bapa:', correct: 'هَذَا أَبِي', options: ['هَذَا أَبِي', 'هَذِهِ أَبِي', 'هَذِهِ أُمِّي'] },
+    { q: 'Antara ayat berikut, yang manakah bermaksud "Saya sayang keluarga saya"?', correct: 'أَنَا أُحِبُّ أُسْرَتِي', options: ['أَنَا أُحِبُّ أَبِي', 'أَنَا أُحِبُّ أُسْرَتِي', 'أَنَا أُحِبُّ أُمِّي'] },
+    { q: 'Anggota badan yang berpasangan menggunakan kata tunjuk "هَذِهِ". Pilih ayat yang BETUL:', correct: 'هَذِهِ عَيْنٌ', options: ['هَذَا عَيْنٌ', 'هَذِهِ عَيْنٌ', 'هَذَا أُذُنٌ'] },
+    { q: '"شَعْرِي ..." (Rambut saya cantik). Kerana rambut dikira Muzakkar, pilih kata sifat yang betul:', correct: 'جَمِيلٌ', options: ['جَمِيلٌ', 'جَمِيلَةٌ', 'نَظِيفَةٌ'] },
+    { q: 'Murid ingin memberitahu "Ini pembaris saya". Ayat yang betul ialah...', correct: 'هَذِهِ مِسْطَرَتِي', options: ['هَذَا مِسْطَرَتِي', 'هَذِهِ مِسْطَرَتِي', 'هَذَا قَلَمِي'] },
+    { q: 'Antara berikut, gandingan manakah yang BETUL dari segi tatabahasa?', correct: 'هَذَا كِتَابٌ', options: ['هَذَا كِتَابٌ', 'هَذَا مِبْرَاةٌ', 'هَذِهِ دَفْتَرٌ'] },
+    { q: 'Apakah maksud ungkapan "عَيْنِي جَمِيلَةٌ"?', correct: 'Mata saya cantik', options: ['Telinga saya bersih', 'Mata saya cantik', 'Gigi saya putih'] },
+    { q: 'Pilih perkataan yang mempunyai huruf "و" di awal kalimah:', correct: 'وَرْدَةٌ', options: ['مَوْزٌ', 'دَلْوٌ', 'وَرْدَةٌ'] },
+    { q: 'Perkataan yang mengandungi huruf "هـ" di awal kalimah ialah:', correct: 'هِلَالٌ', options: ['هِلَالٌ', 'وَجْهٌ', 'نَهْرٌ'] },
+    { q: 'Perkataan manakah yang mengandungi huruf "ف" di awal kalimah?', correct: 'فِيلٌ', options: ['صَفٌّ', 'فِيلٌ', 'عَصْفُورٌ'] },
+    { q: 'Pilih perkataan yang mengandungi huruf "ط" di tengah kalimah:', correct: 'مَطَارٌ', options: ['طَبِيبٌ', 'مَطَارٌ', 'قِطٌّ'] },
+    { q: 'Slogan "حَافِظْ عَلَى الْأَدَوَاتِ الدِّرَاسِيَّةِ" bermaksud:', correct: 'Peliharalah peralatan sekolah', options: ['Datanglah awal ke sekolah', 'Peliharalah peralatan sekolah', 'Susunlah buku dengan kemas'] },
+    { q: 'Pilih perkataan yang mengandungi huruf fokus "ل" di tengah kalimah:', correct: 'قَلَمٌ', options: ['لَبَنٌ', 'قَلَمٌ', 'بَصَلٌ'] },
+    { q: 'Perkataan manakah yang menunjukkan huruf "ي" berada di akhir kalimah?', correct: 'كُرْسِيٌّ', options: ['يَدٌ', 'بَيْتٌ', 'كُرْسِيٌّ'] },
+    { q: 'Pilih perkataan yang mengandungi huruf fokus "و" di akhir kalimah:', correct: 'دَلْوٌ', options: ['وَرْدَةٌ', 'مَوْزٌ', 'دَلْوٌ'] },
+    { q: 'Perkataan yang mengandungi huruf "س" berbaris depan (dammah) ialah:', correct: 'سُوقٌ', options: ['سَمَكٌ', 'سِتَارٌ', 'سُوقٌ'] },
+    { q: 'Pilih perkataan yang mengandungi huruf fokus "هـ" di akhir kalimah:', correct: 'وَجْهٌ', options: ['هِلَالٌ', 'نَهْرٌ', 'وَجْهٌ'] },
+    { q: 'Perkataan yang mengandungi huruf "ر" berbaris atas (fathah) ialah:', correct: 'رَبِيعٌ', options: ['رَبِيعٌ', 'رِمَاحٌ', 'قَرْيَةٌ'] },
+    { q: 'Pilih perkataan yang mempunyai huruf fokus "ف" di akhir kalimah:', correct: 'صَفٌّ', options: ['فِيلٌ', 'عَصْفُورٌ', 'صَفٌّ'] },
+    { q: 'Perkataan manakah yang menunjukkan huruf "ط" di akhir kalimah?', correct: 'قِطٌّ', options: ['طَبِيبٌ', 'مَطَارٌ', 'قِطٌّ'] },
+    { q: 'Pilih perkataan yang mempunyai huruf fokus "ق" di awal kalimah:', correct: 'قَمَرٌ', options: ['قَمَرٌ', 'بَقَرَةٌ', 'سُوقٌ'] },
+    { q: 'Susun suku kata ini supaya menjadi perkataan yang betul mengikut buku teks: [ طَ - مِ - رَ - ةٌ ]', correct: 'مِسْطَرَةٌ', options: ['مِقْلَمَةٌ', 'مِسْطَرَةٌ', 'مِمْحَاةٌ'] }
+];
+
+// ========== EXAM ==========
+function openExam(setNum) {
+    if (setNum === 1) {
+        quizState.questions = shuffle([...set1QuestionBank]).slice(0, 50);
+    } else {
+        quizState.questions = shuffle([...set2QuestionBank]).slice(0, 50);
+    }
+    quizState.unitIdx = setNum;
+    quizState.current = 0;
+    quizState.score = 0;
+    showView('view-exam-detail');
+    renderExamQuestion();
+}
+
+function renderExamQuestion() {
+    const q = quizState.questions[quizState.current];
+    if (!q) { renderExamResult(); return; }
+    quizState.answered = false;
+    let html = `
+    <div class="content-card">
+        <div class="flex justify-between items-center mb-3">
+            <span class="font-bold text-sm">Soalan ${quizState.current + 1} / ${quizState.questions.length}</span>
+            <span class="badge">⭐ ${quizState.score}</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4"><div class="bg-yellow-500 h-2 rounded-full" style="width:${((quizState.current) / quizState.questions.length) * 100}%"></div></div>
+        <p class="font-bold text-lg mb-4 arabic-text">${q.q}</p>
+        <div id="exam-options">
+            ${q.options.map((opt, i) => `<div class="quiz-option" onclick="selectExamAnswer(${i})" id="eopt-${i}"><span class="font-bold mr-2">${String.fromCharCode(65 + i)}.</span> <span class="${opt.match(/[\u0600-\u06FF]/) ? 'arabic-text text-base' : ''}">${opt}</span></div>`).join('')}
+        </div>
+        <div id="exam-feedback" class="mt-3 hidden"></div>
+    </div>`;
+    document.getElementById('exam-content').innerHTML = html;
+}
+
+function selectExamAnswer(idx) {
+    if (quizState.answered) return;
+    quizState.answered = true;
+    const q = quizState.questions[quizState.current];
+    const correctIdx = q.options.indexOf(q.correct);
+    const feedback = document.getElementById('exam-feedback');
+    document.querySelectorAll('#exam-options .quiz-option').forEach(el => el.classList.add('disabled'));
+    document.getElementById('eopt-' + correctIdx).classList.add('correct');
+    if (idx === correctIdx) {
+        quizState.score++;
+        feedback.innerHTML = '<p class="text-green-600 font-bold">✅ Betul!</p>';
+    } else {
+        document.getElementById('eopt-' + idx).classList.add('wrong');
+        feedback.innerHTML = `<p class="text-red-600 font-bold">❌ Salah.</p><p class="text-sm">Jawapan: <span class="font-bold">${q.correct}</span></p>`;
+    }
+    feedback.classList.remove('hidden');
+    setTimeout(() => { quizState.current++; renderExamQuestion(); }, 1500);
+}
+
+function renderExamResult() {
+    const total = quizState.questions.length;
+    const pct = Math.round((quizState.score / total) * 100);
+    const excellent = pct >= 80;
+    if (excellent) { triggerConfetti(); stars += 5; badges++; updateRewards(); }
+    let html = `<div class="content-card text-center">
+        <div class="text-5xl mb-3">${excellent ? '🏆' : pct >= 60 ? '👍' : '💪'}</div>
+        <h3 class="font-bold text-xl mb-2">${excellent ? 'Cemerlang!' : pct >= 60 ? 'Lulus!' : 'Cuba Lagi!'}</h3>
+        <div class="grid grid-cols-2 gap-3 my-4">
+            <div class="bg-green-50 rounded-xl p-3"><p class="text-2xl font-bold text-green-600">${quizState.score}</p><p class="text-xs">Betul</p></div>
+            <div class="bg-red-50 rounded-xl p-3"><p class="text-2xl font-bold text-red-600">${total - quizState.score}</p><p class="text-xs">Salah</p></div>
+            <div class="bg-blue-50 rounded-xl p-3"><p class="text-2xl font-bold text-blue-600">${quizState.score}/${total}</p><p class="text-xs">Markah</p></div>
+            <div class="bg-purple-50 rounded-xl p-3"><p class="text-2xl font-bold text-purple-600">${pct}%</p><p class="text-xs">Peratus</p></div>
+        </div>
+        <div class="flex gap-3 justify-center flex-wrap">
+            <button class="back-btn bg-yellow-500" onclick="openExam(${quizState.unitIdx < 4 ? 1 : 2})">🔄 Cuba Lagi</button>
+            <button class="back-btn bg-blue-500" onclick="showView('view-exam')">📋 Senarai</button>
+            <button class="back-btn" onclick="showView('view-home')">🏠 Home</button>
+        </div>
+    </div>`;
+    document.getElementById('exam-content').innerHTML = html;
+}
+
+// ========== CONFETTI ==========
+function triggerConfetti() {
+    const colors = ['#ff6f61','#ffcc02','#42a5f5','#66bb6a','#ab47bc','#ff7043'];
+    for (let i = 0; i < 40; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        piece.style.animationDuration = (1.5 + Math.random()) + 's';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 3000);
+    }
+}
+
+// ========== GENERATE GRIDS ==========
+const unitsGrid = document.getElementById('units-grid');
+const exerciseGrid = document.getElementById('exercise-grid');
+
+unitsData.forEach((unit, i) => {
+    const card = document.createElement('div');
+    card.className = 'card-tile bg-white rounded-2xl p-4 text-center shadow-lg border-2 cursor-pointer';
+    card.style.borderColor = unit.border;
+    card.style.animationDelay = (i * 0.1) + 's';
+    card.innerHTML = `<div class="text-2xl mb-1">${unit.emoji}</div><p class="font-bold text-sm" style="color:${unit.border}">${unit.titleMs}</p><p class="arabic-text text-sm">${unit.title}</p>`;
+    card.onclick = () => openUnit(i + 1);
+    unitsGrid.appendChild(card);
+
+    const eCard = document.createElement('div');
+    eCard.className = 'card-tile bg-white rounded-2xl p-4 text-center shadow-lg border-2 cursor-pointer';
+    eCard.style.borderColor = unit.border;
+    eCard.style.animationDelay = (i * 0.1) + 's';
+    eCard.innerHTML = `<div class="text-2xl mb-1">📝</div><p class="font-bold text-sm" style="color:${unit.border}">Kuiz: ${unit.titleMs}</p>`;
+    eCard.onclick = () => openExercise(i + 1);
+    exerciseGrid.appendChild(eCard);
+});
+
+// Dark mode
+document.getElementById('toggle-dark').addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode', this.checked);
+});
+
+updateRewards();
+    </script>
+ 
+</body></html>
